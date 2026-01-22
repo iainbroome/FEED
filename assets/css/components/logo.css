@@ -1,0 +1,38 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.logo {
+	align-self: flex-start;
+	display: inline-block;
+	color: var(--color-contrast);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.4;
+	text-decoration: none;
+
+	img {
+		width: auto;
+		height: auto;
+		max-height: var(--logo--max-height, 3.75rem);
+		transition: 0.35s transform cubic-bezier(0.7, 0.2, 0.3, 0.9);
+	}
+
+	&:hover img,
+	&:focus img {
+		transform: scale(1.05);
+	}
+}
+
+@mixin color-scheme-dark {
+	.logo-light {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+@mixin color-scheme-light {
+	.logo-dark {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+}

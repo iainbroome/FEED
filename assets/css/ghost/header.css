@@ -1,0 +1,40 @@
+.kg-header-card {
+	--header--text--padding: calc(var(--spacing-10) * 2) var(--layout--gap);
+
+	/* Heading. */
+	--header--heading--font-size: fluid(18px, 30px);
+	--header--heading--font-weight: var(--font-weight-semibold);
+
+	/* Subheading. */
+	--header--subheading--margin: var(--spacing-7) 0 0;
+	--header--subheading--font-size: fluid(15px, 17px);
+	--header--subheading--line-height: 1.5;
+
+	/* Button. */;
+	--header--button--margin: var(--spacing-8) 0 0;
+
+	border-radius: var(--radius-3);
+	overflow: hidden;
+
+	&.kg-width-full {
+		border-radius: 0;
+	}
+
+	&.kg-layout-split:has(picture:first-child) {
+		--header--text--padding: var(--spacing-8) calc(var(--spacing-10) * 2) calc(var(--spacing-10) * 2) var(--layout--gap);
+	}
+
+	/* Overlay. */
+	&:not(.kg-layout-split)::before {
+		position: absolute;
+		z-index: 1;
+		background-color: color-mix(in srgb, var(--color-black), transparent 70%);
+		content: "";
+		inset: 0;
+	}
+
+	.kg-header-card-content {
+		position: relative;
+		z-index: 1;
+	}
+}

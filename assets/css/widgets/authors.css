@@ -1,0 +1,63 @@
+.widget-authors-list {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--spacing-7);
+}
+
+/* Card. */
+.widget-authors-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-1);
+	min-height: var(--avatar--size);
+	padding-left: calc(var(--avatar--size) + var(--spacing-4));
+
+	/* Background. */
+	&::before {
+		position: absolute;
+		z-index: -1;
+		border-radius: calc(var(--avatar--size) * 0.5 + var(--spacing-3));
+		background-color: var(--color-grey-translucent);
+		opacity: 0;
+		transition: opacity .15s ease;
+		content: "";
+		inset: calc(var(--spacing-3) * -1) calc(var(--spacing-7) * -1) calc(var(--spacing-3) * -1) calc(var(--spacing-3) * -1);
+	}
+
+	&:hover::before {
+		opacity: 1;
+	}
+
+	/* Link. */
+	> a {
+		position: absolute;
+		inset: calc(var(--spacing-7) * -0.5) auto calc(var(--spacing-7) * -0.5) calc(var(--spacing-3) * -1);
+		z-index: 2;
+		width: calc(var(--layout--sidebar-widgets--width) + var(--spacing-3) - var(--layout--gap) * 2);
+		outline-offset: calc(var(--spacing-3) * -1);
+	}
+
+	/* Avatar. */
+	> .avatar {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	/* Name. */
+	> h3 {
+		margin-top: auto;
+		margin-bottom: auto;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+	}
+
+	/* Location. */
+	> span {
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-medium);
+	}
+}

@@ -1,0 +1,66 @@
+.kg-signup-card {
+	--signup--text--padding: calc(var(--spacing-10) * 2) var(--layout--gap);
+
+	/* Heading. */
+	--signup--heading--font-size: fluid(18px, 28px);
+	--signup--heading--font-weight: var(--font-weight-semibold);
+
+	/* Subheading. */
+	--signup--subheading--margin: var(--spacing-7) 0 0;
+	--signup--subheading--font-size: var(--font-medium);
+
+	/* Form. */
+	--signup--form--margin: var(--spacing-9) 0 0;
+
+	/* Disclaimer. */
+	--signup--disclaimer--margin: var(--spacing-5) 0 0;
+
+	border-radius: var(--radius-3);
+	overflow: hidden;
+
+	&.kg-width-full {
+		border-radius: 0;
+	}
+
+	&.kg-layout-split:has(picture:first-child) {
+		--signup--text--padding: var(--spacing-8) calc(var(--spacing-10) * 2) calc(var(--spacing-10) * 2) var(--layout--gap);
+	}
+
+	/* Overlay. */
+	&:not(.kg-layout-split)::before {
+		position: absolute;
+		z-index: 1;
+		background-color: color-mix(in srgb, var(--color-black), transparent 70%);
+		content: "";
+		inset: 0;
+	}
+
+	.kg-signup-card-content {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+/* Subheading. */
+.kg-signup-card-subheading {
+	width: 100%;
+	max-width: 400px !important;
+}
+
+/* Form. */
+.kg-signup-card-fields {
+	position: relative;
+	max-width: 340px !important;
+	border-radius: 2rem !important;
+
+	> .kg-signup-card-input {
+		min-height: 2.75rem;
+    border-radius: 2rem;
+	}
+
+	> .kg-signup-card-button {
+		position: absolute;
+		inset: var(--spacing-2) var(--spacing-2) var(--spacing-2) auto;
+		width: auto;
+	}
+}

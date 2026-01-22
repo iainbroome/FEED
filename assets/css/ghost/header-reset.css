@@ -1,0 +1,101 @@
+/* Wrapper text. */
+.kg-header-card-text {
+	padding: var(--header--text--padding) !important;
+}
+
+/* Heading. */
+.kg-header-card-heading {
+	font-size: var(--header--heading--font-size) !important;
+	font-weight: var(--header--heading--font-weight) !important;
+	line-height: var(--header--heading--line-height, 1.2) !important;
+	letter-spacing: var(--header--heading--letter-spacing, inherit) !important;
+}
+
+/* Subheading. */
+.kg-header-card-subheading {
+	margin: var(--header--subheading--margin, 0) !important;
+	font-size: var(--header--subheading--font-size) !important;
+	font-weight: var(--header--subheading--font-weight) !important;
+	line-height: var(--header--subheading--line-height, inherit) !important;
+}
+
+/* Button. */
+.kg-header-card-button {
+	margin: var(--header--button--margin, 0) !important;
+	letter-spacing: inherit !important;
+	outline: revert !important;
+}
+
+/* Layout split. */
+.kg-header-card.kg-layout-split .kg-header-card-content {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+/* Image cover. */
+.kg-header-card.kg-layout-split:not(.kg-content-wide) picture {
+	aspect-ratio: 16/9;
+}
+
+/* Image contain. */
+.kg-header-card.kg-layout-split.kg-content-wide .kg-header-card-image {
+	height: auto !important;
+	padding: var(--layout--gap) !important;
+	aspect-ratio: 16/9;
+	object-fit: cover !important;
+}
+
+/*
+ * Change colors for toggle color scheme.
+ */
+
+/* Background grey. */
+.kg-header-card[data-background-color="#F0F0F0"] {
+	background-color: var(--color-background-200) !important;
+
+	.kg-header-card-heading {
+		color: var(--color-contrast) !important;
+	}
+
+	.kg-header-card-subheading {
+		color: var(--color-foreground) !important;
+	}
+}
+
+/* Background accent. */
+.kg-header-card[data-background-color="accent"].kg-layout-split,
+.kg-header-card[data-background-color="accent"]:not(.kg-layout-split, :has(> picture)) {
+	background-color: var(--ghost-accent-color) !important;
+
+	.kg-header-card-heading {
+		color: var(--color-accent-foreground) !important;
+	}
+
+	.kg-header-card-subheading {
+		color: color-mix(in srgb, var(--color-accent-foreground), transparent 10%) !important;
+	}
+}
+
+/* White colors when background image. */
+.kg-header-card:not(.kg-layout-split):has(> picture) {
+	.kg-header-card-heading,
+	.kg-header-card-subheading {
+		color: var(--color-white) !important;
+	}
+}
+
+/* Button white. */
+.kg-header-card[data-background-color="#F0F0F0"] [data-button-color="#ffffff"][data-button-text-color="#000000"] {
+	background-color: var(--color-background) !important;
+	color: var(--color-contrast) !important;
+}
+
+/* Button black. */
+.kg-header-card[data-background-color="#F0F0F0"] [data-button-color="#000000"][data-button-text-color="#FFFFFF"] {
+	background-color: var(--color-contrast) !important;
+	color: var(--color-background) !important;
+}
+
+/* Button accent. */
+.kg-header-card .kg-style-accent {
+	color: var(--color-accent-foreground) !important;
+}

@@ -1,0 +1,58 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{!-- Everything inside the #post block pulls data from the page. --}}
+{{#post}}
+
+{{#contentFor "sidebar-widgets"}}
+	{{!-- Author. --}}
+	{{> "widgets/author"}}
+
+	{{!-- Toc. --}}
+	{{> "widgets/toc"}}
+
+{{!-- Related posts. --}}
+{{#get "posts" filter="id:-{{id}}+tag:-link" limit="3"}}
+	{{> "widgets/posts" is_related=true}}
+{{/get}}
+
+	{{!-- Recommendations. --}}
+	{{> "widgets/recommendations"}}
+{{/contentFor}}
+
+{{!-- Post. --}}
+<article class="{{post_class}}">
+	{{!-- Header sync with post-card-style. --}}
+	{{#> "settings/post-card-style"}}
+		{{> "post/header"}}
+	{{/"settings/post-card-style"}}
+
+	{{!-- Excerpt. --}}
+	{{#has tag="link"}}
+		{{!-- Don't show excerpt for linked posts since it contains the URL --}}
+	{{else}}
+		{{#if custom_excerpt}}
+			<p>{{custom_excerpt}}</p>
+		{{/if}}
+	{{/has}}
+
+	{{!-- Media (featured image and video). --}}
+	<div class="post-media">
+		{{> "post/featured-image"}}
+	</div>
+
+	{{!-- Content. --}}
+	{{> "post/content" is_post=true}}
+
+	{{!-- Footer. --}}
+	{{> "post/footer"}}
+</article>
+
+{{#if comments}}
+<section class="section-comments" id="comments">
+	<h2 class="screen-reader-text">{{t "Comments"}}</h2>
+	{{comments title="" count=false}}
+</section>
+{{/if}}
+
+{{/post}}

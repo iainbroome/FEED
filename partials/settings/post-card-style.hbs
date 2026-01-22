@@ -1,0 +1,29 @@
+{{#*inline "get-slug"}}
+	{{#match setting "Classic Extended"}}
+		{{> @partial-block slug="classic" extended=true}}
+	{{else match setting "Classic Full"}}
+		{{> @partial-block slug="classic" full=true}}
+	{{else match setting "Classic Minimal"}}
+		{{> @partial-block slug="classic" minimal=true hide_avatar=true}}
+	{{else match setting "Classic Minimal Extended"}}
+		{{> @partial-block slug="classic" minimal=true hide_avatar=true extended=true}}
+	{{else match setting "Classic Minimal Full"}}
+		{{> @partial-block slug="classic" minimal=true hide_avatar=true full=true}}
+	{{else match setting "List"}}
+		{{> @partial-block slug="list"}}
+	{{else match setting "Grid"}}
+		{{> @partial-block slug="grid"}}
+	{{else}}
+		{{> @partial-block slug="classic"}}
+	{{/match}}
+{{/inline}}
+
+{{#if setting}}
+	{{#> "get-slug"}}
+		{{> @partial-block}}
+	{{/"get-slug"}}
+{{else}}
+	{{#> "get-slug" setting=@custom.post_card_style}}
+		{{> @partial-block}}
+	{{/"get-slug"}}
+{{/if}}

@@ -1,0 +1,24 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.post-content {
+	.kg-callout-card {
+		position: relative;
+		gap: var(--spacing-4);
+		padding: var(--spacing-7) var(--spacing-8);
+		color: var(--color-contrast);
+		border-radius: var(--radius-2);
+	}
+
+	.kg-callout-card div.kg-callout-emoji {
+		display: flex;
+		align-self: flex-start;
+		align-items: center;
+		justify-content: center;
+		padding-right: 0;
+		border-radius: 50%;
+	}
+
+	.kg-callout-card-accent {
+		color: var(--color-accent-foreground);
+	}
+}

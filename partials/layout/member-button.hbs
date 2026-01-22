@@ -1,0 +1,17 @@
+{{#if @member}}
+	<a href="#/portal" class="{{class}}">
+		{{> "components/avatar" src=@member.avatar_image name=@member.name}}
+		<span class="label">{{@member.name}}</span>
+		{{#unless hide_icon}}
+			{{> "icons/more"}}
+		{{/unless}}
+	</a>
+{{else}}
+	<a href="#/portal/signin" class="{{class}}">
+		{{> "components/avatar" name="anonymous"}}
+		<span class="label">{{t "Sign in"}}</span>
+		{{#unless hide_icon}}
+			{{> "icons/more"}}
+		{{/unless}}
+	</a>
+{{/if}}

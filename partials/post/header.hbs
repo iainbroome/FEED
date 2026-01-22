@@ -1,0 +1,63 @@
+{{#*inline "authors"}}
+	{{#foreach authors limit="4"}}
+		<div class="post-author">
+			<a href="{{url}}" class="popover-target">
+				{{#match ../authors.length ">=" 4}}
+					{{> "components/avatar" src=profile_image size="small" fast=../fast}}
+				{{else match @first}}
+					{{> "components/avatar" src=profile_image fast=../fast}}
+				{{else}}
+					{{> "components/avatar" src=profile_image size="small" fast=../fast}}
+				{{/match}}
+			</a>
+			{{> "components/author-popover"}}
+		</div>
+	{{/foreach}}
+{{/inline}}
+
+<header class="post-head">
+	{{!-- Avatar. --}}
+	{{#unless hide_avatar}}
+		{{#has tag="link"}}
+			{{!-- Don't show avatar for linked posts --}}
+		{{else}}
+			{{#if authors}}
+				<div class="post-authors">
+					{{#if @first}}
+						{{> "authors" fast=true}}
+					{{else}}
+						{{> "authors"}}
+					{{/if}}
+				</div>
+			{{/if}}
+		{{/has}}
+	{{/unless}}
+
+	{{!-- Title. --}}
+	{{#if is_post_card}}
+		<h3 class="post-title">
+			{{#has tag="link"}}
+				<a class="label post-link-external" href="{{excerpt}}" target="_blank" rel="noopener">{{title}}</a>
+			{{else}}
+				<a class="label" href="{{url}}">{{title}}</a>
+			{{/has}}
+			{{> "post/status-icons" stroke_width="1.5"}}
+		</h3>
+	{{else}}
+		<h1 class="post-title">
+			{{#has tag="link"}}
+				<a class="label post-link-external" href="{{excerpt}}" target="_blank" rel="noopener">{{title}}</a>
+			{{else}}
+				<span class="label">{{title}}</span>
+			{{/has}}
+			{{> "post/status-icons" stroke_width="1.5"}}
+		</h1>
+	{{/if}}
+
+	{{!-- Tag. --}}
+	{{#unless hide_tag}}
+		{{#primary_tag}}
+			<a class="post-tag" href="{{url}}">{{name}}</a>
+		{{/primary_tag}}
+	{{/unless}}
+</header>

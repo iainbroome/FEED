@@ -1,0 +1,30 @@
+{{#primary_author}}
+<section class="widget-author">
+	<h2 class="widget-heading">{{{t "{icon} Author" icon='<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 19C20.1421 19 23.5 15.6421 23.5 11.5C23.5 7.35786 20.1421 4 16 4C11.8579 4 8.5 7.35786 8.5 11.5C8.5 15.6421 11.8579 19 16 19ZM16 19C11.1426 19 7.01992 21.6402 4.75 25.5625M16 19C20.8574 19 24.9801 21.6402 27.25 25.5625" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'}}}</h2>
+
+	<div class="widget-author-card">
+		<div class="widget-author-card-head">
+			{{!-- Avatar. --}}
+			<a href="{{url}}" tabindex="-1">
+				{{> "components/avatar" src=profile_image}}
+			</a>
+
+			{{!-- Name. --}}
+			<h3><a href="{{url}}">{{name}}</a></h3>
+
+			{{!-- Location. --}}
+			{{#if location}}
+				<span>{{location}}</span>
+			{{/if}}
+		</div>
+
+		{{!-- Biography. --}}
+		{{#if bio}}
+			<p>{{bio}}</p>
+		{{/if}}
+
+		{{!-- Social links. --}}
+		{{> "components/social-links-author"}}
+	</div>
+</section>
+{{/primary_author}}

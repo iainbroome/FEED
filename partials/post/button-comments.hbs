@@ -1,0 +1,7 @@
+{{#if comments}}
+<a class="button" href="{{href}}">
+	<span class="screen-reader-text">{{t "Comments for {post_title}" post_title=title}}</span>
+	{{> "icons/message"}}
+	<span class="label">{{comment_count empty="" singular="" plural=""}}</span>
+</a>
+{{/if}}

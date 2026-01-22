@@ -1,0 +1,10 @@
+.widget-footer {
+	display: flex;
+	gap: var(--spacing-6);
+	margin-top: auto;
+	padding-top: var(--spacing-2);
+
+	> .footer-copyright {
+		flex: 1 0 0%;
+	}
+}

@@ -1,0 +1,52 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+
+{{!-- Everything inside the #author block pulls data from the page. --}}
+{{#author}}
+	{{#contentFor "sidebar-widgets"}}
+		{{!-- Authors. --}}
+		{{#get "authors" filter="slug:-{{slug}}" include="count.posts" order="count.posts DESC" limit="3"}}
+			{{> "widgets/authors"}}
+		{{/get}}
+
+		{{!-- Featured. --}}
+		{{#get "posts" filter="featured:true" include="tags" limit="3"}}
+			{{> "widgets/posts"}}
+		{{/get}}
+
+		{{!-- Recommendations. --}}
+		{{> "widgets/recommendations"}}
+	{{/contentFor}}
+
+	<section class="author">
+		{{#if cover_image}}
+			{{> "components/image" class="author-cover" size="container-full" fast=true src=cover_image alt=(t "Cover {author}" author=name)}}
+		{{else}}
+			<div class="author-cover"></div>
+		{{/if}}
+
+		<div class="author-head">
+			{{> "components/avatar" size="author" src=profile_image}}
+
+			{{> "components/social-links-author"}}
+		</div>
+
+		<h1>{{name}}</h1>
+
+		{{#if location}}
+			<span>{{location}}</span>
+		{{/if}}
+
+		{{#if bio}}
+			<p>{{bio}}</p>
+		{{/if}}
+
+		{{#if ../pagination.total}}
+			<span>{{plural ../pagination.total empty='' singular=(t "% post") plural=(t "% posts")}}</span>
+		{{/if}}
+	</section>
+{{/author}}
+
+{{!-- Posts. --}}
+{{> "sections/posts" title=(t "Posts by {author}" author=author.name)}}

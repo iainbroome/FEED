@@ -1,0 +1,13 @@
+<section class="widget-subscribe">
+	<div class="widget-subscribe-head">
+		{{#if @site.icon}}
+			<img src="{{@site.icon}}" width="70" height="70">
+		{{/if}}
+		<h2>{{@site.title}}</h2>
+		{{> "components/social-links"}}
+	</div>
+
+	<p>{{@site.description}}</p>
+
+	{{> "form-subscribe"}}
+</section>

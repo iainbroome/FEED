@@ -1,0 +1,59 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.toggle-color-scheme-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.5rem; /* 24px. */
+	height: 1.5rem; /* 24px. */
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background-color: var(--color-background-300);
+	transition:
+		color 0.15s ease,
+		background-color 0.15s ease;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--color-background-400);
+	}
+
+	.icon {
+		position: absolute;
+		display: block;
+		width: var(--font-small);
+		height: var(--font-small);
+	}
+
+	.icon-sun,
+	.icon-moon {
+		opacity: 0;
+	}
+}
+
+[data-color-scheme='light'] {
+	.toggle-color-scheme-button {
+		.icon-sun {
+			opacity: 1;
+		}
+
+		.icon-moon,
+		.icon-circle-half {
+			opacity: 0;
+		}
+	}
+}
+
+[data-color-scheme='dark'] {
+	.toggle-color-scheme-button {
+		.icon-moon {
+			opacity: 1;
+		}
+
+		.icon-sun,
+		.icon-circle-half {
+			opacity: 0;
+		}
+	}
+}

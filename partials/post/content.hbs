@@ -1,0 +1,9 @@
+{{#if html}}
+	<div class="post-content{{#unless access}} post-content-teaser{{/unless}}">
+		{{{html}}}
+	</div>
+{{/if}}
+
+{{#unless access}}
+	{{> "content-cta"}}
+{{/unless}}

@@ -1,0 +1,232 @@
+@import url('../_breakpoints.css');
+
+.section-posts {
+	/* Divided layout. */
+	.sections-style-divided & {
+		article + article {
+			padding-top: var(--layout--gap);
+			border-top: 1px solid var(--color-border);
+		}
+
+		.posts-list {
+			padding: var(--layout--gap);
+		}
+	}
+
+	/* Cloud layout. */
+	.sections-style-cloud & {
+		article {
+			padding: var(--spacing-4) var(--layout--gap) var(--spacing-4) var(--spacing-4);
+		}
+	}
+
+	/* Minimal layout. */
+	.sections-style-card & {
+		article {
+			padding: var(--spacing-4) var(--layout--gap) var(--spacing-4) var(--spacing-4);
+		}
+	}
+
+	/* Card. */
+	article {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--layout--gap);
+
+		+ article {
+			margin-top: var(--layout--gap);
+		}
+	}
+
+	/* Media (featured image and video). */
+	.post-card-media {
+		--post-card--media--radius: calc(var(--radius-3) - var(--spacing-3));
+
+		position: relative;
+		margin-top: 0;
+		padding: 0;
+		border-radius: var(--post-card--media--radius);
+		background-color: var(--color-background-300);
+		transition: transform .3s ease;
+		flex: 0 0 240px;
+		aspect-ratio: var(--featured-image--aspect-ratio);
+
+		@media (--breakpoint-max-lg) {
+			flex: 0 0 165px;
+		}
+
+		@media (--breakpoint-max-xs) {
+			flex: 0 0 100%;
+		}
+
+		/* Link. */
+		> a {
+			position: absolute;
+			inset: 0;
+			z-index: 2;
+		}
+
+		/* Image. */
+		> .post-featured-image {
+			margin: 0;
+
+			img {
+				transition: transform .3s ease;
+			}
+		}
+
+		/* Video. */
+		> .post-featured-video {
+			margin: 0;
+		}
+
+		/* Image and video. */
+		> .post-featured-image,
+		> .post-featured-video {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		/* Set size. */
+		> .post-featured-image,
+		> .post-featured-image > picture,
+		> .post-featured-image img,
+		> .post-featured-video,
+		> .post-featured-video iframe,
+		> .post-featured-video video {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		/* Set object fit. */
+		> .post-featured-image img,
+		> video.post-featured-video,
+		> .post-featured-video video {
+			object-fit: cover;
+		}
+
+		/* Set radius. */
+		> .post-featured-image > picture {
+			display: block;
+			overflow: hidden;
+			border-radius: var(--post-card--media--radius);
+		}
+
+		> iframe.post-featured-video,
+		> .post-featured-video iframe,
+		> video.post-featured-video,
+		> .post-featured-video video,
+		> .post-featured-video .kg-video-container {
+			clip-path: inset(0 round var(--post-card--media--radius));
+		}
+
+		/* Disable video card player container. */
+		.kg-video-player-container {
+			display: none;
+		}
+
+		/* Hide figcaption. */
+		figcaption {
+			display: none;
+		}
+
+		&:hover,
+		&:hover img {
+			transform: scale(1.015);
+		}
+	}
+
+	/* Icons. */
+	.post-status-icons {
+		position: absolute;
+		top: var(--spacing-5);
+		left: var(--spacing-5);
+		z-index: 2;
+		display: flex;
+		gap: 0;
+		color: var(--color-white);
+
+		> span {
+			padding: calc(var(--spacing-2) + var(--spacing-1));
+			filter:
+				drop-shadow(0 0 3px rgb(0 0 0 / 20%));
+		}
+
+		svg {
+			display: block;
+			width: 1rem;
+			height: 1rem;
+		}
+	}
+
+	/* Footer. */
+	.post-footer {
+		gap: var(--spacing-4);
+		margin-top: var(--vertical-rhythm);
+		padding-top: var(--spacing-1);
+
+		> .button {
+			margin-right: calc(var(--spacing-4) * -1);
+		}
+
+		.button {
+			--button--color: var(--color-secondary);
+		}
+
+		.button > svg {
+			width: 1rem;
+			height: 1rem;
+		}
+	}
+}
+
+/* Content. */
+.section-posts-card-content {
+	flex: 1 0 0%;
+	display: flex;
+	flex-direction: column;
+	padding: var(--spacing-6) 0;
+
+	@media (--breakpoint-max-xs) {
+		padding: 0 var(--spacing-4) var(--spacing-6);
+	}
+
+	/* Title. */
+	> h3 {
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-semibold);
+
+		&:not(:has(+ p)) {
+			margin-bottom: auto;
+		}
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
+	/* Excerpt. */
+	> p {
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		display: -webkit-box;
+		overflow: hidden;
+		margin-top: var(--vertical-rhythm);
+		margin-bottom: auto;
+	}
+}
+
+/* Pagination. */
+.section-posts-pagination {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-6);
+	width: 100%;
+
+	&:not(:has(> .button)) {
+		display: none;
+	}
+}

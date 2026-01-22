@@ -1,0 +1,66 @@
+.widget-recommendations {
+	&:not(:has(.widget-recommendations-list > .card-recommendation)) {
+		display: none;
+	}
+}
+
+.widget-recommendations-list {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--spacing-8);
+
+	> .card-recommendation {
+		position: relative;
+		z-index: 1;
+		padding-right: var(--spacing-1);
+
+		/* Background. */
+		&::before {
+			position: absolute;
+			z-index: -1;
+			border-radius: 2rem;
+			transition: background-color .15s ease;
+			content: "";
+			inset: calc(var(--spacing-5) * -1) calc(var(--spacing-6) * -1);
+		}
+
+		&:hover::before {
+			background-color: var(--color-grey-translucent);
+		}
+
+		> a {
+			position: absolute;
+			top: calc(var(--spacing-5) * -1);
+			bottom: calc(var(--spacing-5) * -1);
+			left: calc(var(--spacing-6) * -1);
+			width: calc(var(--layout--sidebar-widgets--width) - var(--layout--gap) * 2 + var(--spacing-6) * 2);
+		}
+
+		> h3 {
+			display: flex;
+			align-items: center;
+			font-size: var(--font-medium);
+    	font-weight: var(--font-weight-medium);
+		}
+
+		picture {
+			margin-right: var(--spacing-4);
+		}
+
+		img {
+			--placeholder--content: "";
+			--placeholder--padding: 0;
+			--placeholder--background-color: var(--color-background-300);
+
+			width: 20px;
+			height: 20px;
+			object-fit: cover;
+			border-radius: var(--radius-1);
+		}
+
+		> p {
+			display: none;
+		}
+	}
+}

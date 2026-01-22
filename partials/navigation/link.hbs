@@ -1,0 +1,22 @@
+{{!--
+	Link or Sub Link.
+
+	Info: </div> and </ul> are closed automatically in the navigation.hbs.
+
+	Variables:
+		- nav: data included in {{navigation}}.
+		- item: data included in the link.
+		- this: all data.
+--}}
+
+{{#match item.url "/#/search/"}}
+	{{> "navigation/search"}}
+{{else match item.url "/#/search"}}
+	{{> "navigation/search"}}
+{{else}}
+	<a
+		href="{{item.url}}"
+		class="nav-link nav-link-{{item.slug}}{{#if item.current}} nav-link-current{{/if}}">
+		{{~#unless nav.hide_icons}}{{#unless sub}}{{> "icons-menu/all" slug=item.slug}}{{/unless}}{{/unless~}}
+		<span class="label">{{item.label}}</span></a>
+{{/match}}

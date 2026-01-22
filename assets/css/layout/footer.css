@@ -1,0 +1,20 @@
+.footer {
+	> .social-links:has(> li) {
+		margin-bottom: var(--spacing-4);
+	}
+}
+
+.footer-bottom {
+	display: flex;
+	flex-wrap: wrap;
+
+	> .footer-copyright {
+		margin-top: auto;
+		margin-bottom: auto;
+		flex: 1 0 0%;
+	}
+
+	> .toggle-color-scheme-button {
+		flex: 0 0 auto;
+	}
+}

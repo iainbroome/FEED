@@ -1,0 +1,27 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{!-- Everything inside the #tag block pulls data from the page. --}}
+{{#tag}}
+	<section class="tag">
+		{{#if feature_image}}
+			{{> "components/image" size="container-full" fast=true src=feature_image alt=name}}
+		{{/if}}
+
+		<div class="tag-header-with-color">
+			<div class="tag-color-circle" style="background-color: {{accent_color}}; width: 40px; height: 40px; border-radius: 50%;"></div>
+			<h1>{{name}}</h1>
+		</div>
+
+		{{#if description}}
+			<p>{{description}}</p>
+		{{/if}}
+
+		{{#if ../pagination.total}}
+			<span>{{plural ../pagination.total empty='' singular=(t "% post") plural=(t "% posts")}}</span>
+		{{/if}}
+	</section>
+{{/tag}}
+
+{{!-- Posts. --}}
+{{> "sections/posts" title=(t "Posts tagged with {tag}" tag=tag.name) hide_tag=true}}

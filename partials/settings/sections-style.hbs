@@ -1,0 +1,19 @@
+{{#*inline "get-slug"~}}
+	{{~#match setting "Card"~}}
+		{{~> @partial-block slug="card"~}}
+	{{~else match setting "Cloud"~}}
+		{{~> @partial-block slug="cloud"~}}
+	{{~else~}}
+		{{~> @partial-block slug="divided"~}}
+	{{~/match~}}
+{{~/inline~}}
+
+{{~#if setting~}}
+	{{~#> "get-slug"~}}
+		{{~> @partial-block~}}
+	{{~/"get-slug"~}}
+{{~else~}}
+	{{~#> "get-slug" setting=@custom.sections_style~}}
+		{{~> @partial-block~}}
+	{{~/"get-slug"~}}
+{{~/if~}}

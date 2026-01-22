@@ -1,0 +1,10 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#contentFor "title"}}{{statusCode}} — {{message}}{{/contentFor}}
+{{#contentFor "body-class"}} page-error{{/contentFor}}
+
+<div class="page-error-card">
+	<h1>{{statusCode}}. {{message}}</h1>
+	<p>{{t 'Oops! It seems like you’ve landed on a page that doesn’t exist.'}}</p>
+</div>

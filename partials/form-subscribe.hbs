@@ -1,0 +1,23 @@
+{{#if @site.members_enabled}}
+	{{#unless @member}}
+		<form class="form-subscribe" data-members-form="subscribe" data-members-autoredirect="false">
+			<div class="form-subscribe-fields">
+				<input type="email" placeholder="{{t "Enter your email..."}}" required data-members-email>
+				<button class="button" type="submit">
+					{{#if @site.portal_button_signup_text}}
+						<span class="label">{{@site.portal_button_signup_text}}</span>
+					{{else}}
+						<span class="label">{{t "Subscribe"}}</span>
+					{{/if}}
+					{{> "icons/loader"}}
+					{{> "icons/check"}}
+				</button>
+			</div>
+
+			<span class="form-alert">
+				<span class="success">{{t "Please check your inbox and click the confirmation link."}}</span>
+				<span class="error" data-members-error></span>
+			</span>
+		</form>
+	{{/unless}}
+{{/if}}

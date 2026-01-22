@@ -1,0 +1,22 @@
+{{#if recommendations}}
+	{{#foreach recommendations}}
+		<div class="card-recommendation">
+			<a href="{{this.url}}" target="_blank" rel="noopener" aria-label="{{title}}"></a>
+
+			<h3>
+				{{#if favicon}}
+					<picture>
+						<img src="{{favicon}}" alt="{{t "Favicon for {title}" title=title}}" width="22" height="22">
+					</picture>
+				{{/if}}
+
+				{{title}}
+			</h3>
+
+			{{!-- Content. --}}
+			{{#if description}}
+				<p>{{description}}</p>
+			{{/if}}
+		</div>
+	{{/foreach}}
+{{/if}}

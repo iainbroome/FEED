@@ -1,0 +1,99 @@
+.section-authors-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.section-authors-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-1);
+	padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) calc(var(--avatar--size) + var(--spacing-4) * 2);
+	flex: 1 0 200px;
+
+	> a {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+	}
+
+	/* Avatar. */
+	> .avatar {
+		position: absolute;
+		top: var(--spacing-4);
+		left: var(--spacing-4);
+	}
+
+	/* Name. */
+	> h3 {
+		margin-top: auto;
+		margin-bottom: auto;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
+	/* Location and count posts. */
+	> span:not(.avatar) {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: auto;
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.2;
+		overflow: hidden;
+
+		> span {
+			transition: transform .25s ease;
+		}
+
+		> span:last-child {
+			margin-bottom: -1lh;
+		}
+	}
+
+	&:hover > span:not(.avatar) > span {
+		transform: translateY(-1lh);
+	}
+}
+
+/* Head. */
+.section-authors-card-head {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-1);
+	min-height: var(--avatar--size);
+	padding-left: calc(var(--avatar--size) + var(--spacing-4));
+
+	/* Avatar. */
+	> a {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	/* Name. */
+	> h3 {
+		margin-top: auto;
+		margin-bottom: auto;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
+	/* Location. */
+	> span {
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-medium);
+	}
+}

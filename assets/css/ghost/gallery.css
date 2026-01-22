@@ -1,0 +1,17 @@
+.post-content {
+	.kg-gallery-card {
+		--gap: var(--spacing-5);
+	}
+
+	.kg-gallery-image img {
+		object-fit: cover;
+		background-color: var(--color-background-300);
+	}
+
+	.kg-gallery-card:not(.kg-card-hascaption) + .kg-gallery-card,
+	.kg-gallery-card:not(.kg-card-hascaption) + .kg-image-card,
+	.kg-image-card:not(.kg-card-hascaption) + .kg-gallery-card,
+	.kg-image-card:not(.kg-card-hascaption) + .kg-image-card {
+		margin-top: calc(var(--spacing-4) * -1 + var(--gap));
+	}
+}

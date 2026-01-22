@@ -1,0 +1,41 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{!-- Widgets (home, authors, tags). --}}
+{{#contentFor "sidebar-widgets"}}
+	{{!-- Featured. --}}
+	{{#get "posts" filter="featured:true" include="tags" limit="3"}}
+		{{> "widgets/posts"}}
+	{{/get}}
+
+	{{!-- Tags. --}}
+	{{#> "get-tags" setting=@custom.tags_list_widget}}
+		{{> "widgets/tags"}}
+	{{/"get-tags"}}
+
+	{{!-- Recommendations. --}}
+	{{> "widgets/recommendations"}}
+{{/contentFor}}
+
+{{!-- Everything inside the #page block pulls data from the page. --}}
+{{#page}}
+	<article class="post custom-page">
+		{{!-- Hero. --}}
+		{{> "sections/hero"}}
+
+		{{!-- Pricing. --}}
+		<section class="section-pricing">
+			<h2 class="screen-reader-text">{{t "Pricing List"}}</h2>
+
+			<div class="pricing-wrapper">
+				{{> "pricing"
+					pricing_start='<div class="pricing-header">'
+					pricing_description="</div>"
+				}}
+			</div>
+		</section>
+
+		{{!-- Content. --}}
+		{{> "post/content"}}
+	</article>
+{{/page}}

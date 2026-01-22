@@ -1,0 +1,21 @@
+@import url('../_breakpoints.css');
+@import url('../layout/navbar.css');
+
+/*
+ * Navbar Clean: navbar only
+ */
+
+:root {
+	--layout--content--width: 640px;
+}
+
+.container {
+	width: calc(var(--layout--content--width));
+	max-width: 100%;
+
+	> .content {
+		flex: 0 1 var(--layout--content--width);
+		width: var(--layout--content--width);
+		max-width: 100%;
+	}
+}

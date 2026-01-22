@@ -1,0 +1,6 @@
+<button
+	data-ghost-search
+	class="nav-link nav-link-{{item.slug}}{{#if item.current}} nav-link-current{{/if}}">
+	{{~#unless nav.hide_icons}}{{#unless sub}}{{> "icons-menu/all" slug=item.slug}}{{/unless}}{{/unless}}
+	<span class="label">{{item.label}}</span>
+</button>

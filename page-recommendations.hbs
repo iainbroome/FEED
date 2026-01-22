@@ -1,0 +1,24 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{!-- Everything inside the #page block pulls data from the page. --}}
+{{#page}}
+	<article class="post custom-page">
+		{{> "sections/hero"}}
+
+		{{!-- Recommendations. --}}
+		{{#if @site.recommendations_enabled}}
+			<section class="section-recommendations">
+				<h2 class="screen-reader-text">{{t "Recommendations List"}}</h2>
+
+				<div>
+					{{recommendations limit="999"}}
+				</div>
+			</section>
+		{{/if}}
+
+		{{!-- Content. --}}
+		{{> "post/content"}}
+	</article>
+{{/page}}
+

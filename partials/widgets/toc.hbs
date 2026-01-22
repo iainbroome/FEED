@@ -1,0 +1,28 @@
+{{#*inline "toc"}}
+	<section class="widget-toc">
+		<h2 class="widget-heading">
+			{{{t '{icon} On this page' icon='<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 8H21.25M7.09375 15.5H24.5938M10.75 23H28.25" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round"/></svg>'}}}
+		</h2>
+
+		<div class='toc toc-hidden'>
+			<div class="toc-unlock-link" style="display: none;">
+				<a href="#post-upgrade-cta">
+					{{> "icons/lock" stroke_width="2"}}
+					{{t "Unlock full content"}}
+				</a>
+			</div>
+		</div>
+	</section>
+{{/inline}}
+
+{{#if html}}
+	{{#is "post"}}
+		{{^has tag="#hide-toc"}}
+			{{> "toc"}}
+		{{/has}}
+	{{else}}
+		{{#has tag="#toc"}}
+			{{> "toc"}}
+		{{/has}}
+	{{/is}}
+{{/if}}

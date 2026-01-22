@@ -1,0 +1,31 @@
+{{!--
+	Layout type.
+
+	- Full: show default
+	- Compact: sidebar collapsed + sidebar widgets
+	- Navbar: navbar + sidebar widgets
+	- Navbar Clean: navbar only
+	- Focused: sidebar navigation only
+	- Minimal: sidebar collapsed only
+--}}
+{{~#*inline "get-slug"~}}
+	{{~#match setting "Compact"~}}
+		{{~> @partial-block layout_slug="compact" show_sidebar_navigation=true sidebar_navigation_collapsed=true show_sidebar_widgets=true~}}
+	{{~else match setting "Navbar"~}}
+		{{~> @partial-block layout_slug="navbar" show_navbar=true show_sidebar_widgets=true~}}
+	{{~else match setting "Navbar Clean"~}}
+		{{~> @partial-block layout_slug="navbar-clean" show_navbar=true~}}
+	{{~else match setting "Focused"~}}
+		{{~> @partial-block layout_slug="focused" show_sidebar_navigation=true~}}
+	{{~else match setting "Minimal"~}}
+		{{~> @partial-block layout_slug="minimal" show_sidebar_navigation=true sidebar_navigation_collapsed=true~}}
+	{{~else~}}
+		{{~> @partial-block layout_slug="full" show_sidebar_navigation=true sidebar_navigation_collapsed=true show_sidebar_widgets=true~}}
+	{{~/match~}}
+{{~/inline~}}
+
+{{~#> "settings/default" default_setting=@custom.layout_style~}}
+	{{~#> "get-slug"~}}
+		{{~> @partial-block~}}
+	{{~/"get-slug"~}}
+{{~/"settings/default"~}}

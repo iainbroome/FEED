@@ -1,0 +1,15 @@
+<a
+	class="button pagination-button"
+	href="{{#if pagination_href}}{{pagination_href}}{{else}}{{@site.url}}{{page_url page}}{{/if}}"
+	data-pagination="{{#if type}}{{type}}{{else}}infinite{{/if}}"
+	{{#if append}}
+		data-pagination-append="{{append}}"
+	{{else}}
+		data-pagination-prepend="{{prepend}}"
+	{{/if}}
+	{{#if from}}data-pagination-from="{{from}}"{{/if}}
+>
+	<span class="label">{{label}}</span>
+	<span class="loader">{{> "icons/loader"}}</span>
+	{{#if append}}<span class="complete">{{t "You've reached the end of the list"}}</span>{{/if}}
+</a>

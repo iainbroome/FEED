@@ -1,0 +1,7 @@
+{{#if @site.recommendations_enabled}}
+<section class="widget-recommendations">
+	<h2 class="widget-heading">{{{t "{icon} Recommendations" icon='<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 12.5L15 2.50003C17 2.5 19.5 3.5 19 9.50003H26.9844C28.1874 9.50003 29.1182 10.5544 28.969 11.7481L27.469 23.7481C27.3439 24.749 26.4931 25.5 25.4844 25.5H10M10 12.5H4C3.44772 12.5 3 12.9478 3 13.5V24.5C3 25.0523 3.44772 25.5 4 25.5H10M10 12.5V25.5" stroke="currentcolor" stroke-width="2.5" stroke-linejoin="round"/></svg>'}}}</h2>
+
+	<div class="widget-recommendations-list">{{recommendations limit=5}}</div>
+</section>
+{{/if}}

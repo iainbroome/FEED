@@ -1,0 +1,180 @@
+@import url('../_breakpoints.css');
+
+:root {
+	--content--shadow: 0 6px 40px -20px rgb(0 0 0 / 20%);
+	--card--shadow: 0 4px 26px -10px rgb(0 0 0 / 20%);
+	--card-hover--shadow: 0 8px 26px -10px rgb(0 0 0 / 20%);;
+}
+
+body {
+	background-color: var(--color-background-100);
+}
+
+.tag,
+.post:not(.custom-page),
+.author,
+.pricing,
+.section-comments,
+.page-error-card,
+.section-posts article,
+.section-pricing + .post-content {
+	border-radius: var(--radius-3);
+	background-color: var(--color-background);
+	box-shadow: var(--content--shadow);
+}
+
+.post + .section-comments,
+.tag + .section-posts,
+.author + .section-posts,
+.section-posts-card + .section-posts-card,
+.section-pricing + .post-content {
+	margin-top: var(--layout--gap);
+}
+
+/* Form subscribe. */
+.form-subscribe-fields > input {
+	border-color: transparent;
+	background-color: var(--color-background);
+	box-shadow: var(--card--shadow);
+}
+
+/* Content. */
+.content {
+	padding: var(--layout--gap);
+}
+
+/* Sidebar navigation. */
+.sidebar-navigation {
+	padding: calc(var(--layout--gap) + var(--spacing-3)) var(--layout--gap) var(--layout--gap);
+
+	@container sidebar (width > 100px) {
+		padding-top: calc(var(--layout--gap) + var(--spacing-1));
+	}
+}
+
+/* Sidebar widgets. */
+.sidebar-widgets {
+	padding: calc(var(--layout--gap) + var(--spacing-3)) var(--layout--gap);
+}
+
+/* Navbar. */
+.navbar {
+	margin-bottom: var(--layout--gap);
+}
+
+/* Hero. */
+.custom-page > .section-hero {
+	padding: var(--spacing-3) 0 var(--spacing-6);
+}
+
+/* Author page cover. */
+.author-cover {
+	margin: calc(var(--layout--gap) * -1) calc(var(--layout--gap) * -1) 0;
+
+	> img {
+		border-radius: var(--radius-3) var(--radius-3) 0 0;
+	}
+}
+
+/* Tag feature image. */
+.tag > picture {
+	margin: calc(var(--layout--gap) * -1) calc(var(--layout--gap) * -1) 0;
+
+	> img {
+		border-radius: var(--radius-3) var(--radius-3) 0 0;
+	}
+}
+
+/* Authors. */
+.section-authors-list {
+	gap: var(--spacing-7);
+
+	.section-authors-card {
+		min-height: calc(var(--avatar--size) + var(--spacing-4) * 2);
+		border-radius: calc(var(--avatar--size) * 0.5 + var(--spacing-4));
+		background-color: var(--color-background);
+		box-shadow: var(--card--shadow);
+		transition: transform .2s ease, box-shadow .2s ease;
+
+		&:hover {
+			box-shadow: var(--card-hover--shadow);
+			transform: translateY(-1px);
+		}
+	}
+}
+
+/* Recommendations. */
+.section-recommendations {
+	> div {
+		gap: var(--spacing-7);
+	}
+
+	.card-recommendation {
+		box-shadow: var(--card--shadow);
+		transition: transform .2s ease, box-shadow .2s ease;
+
+		&:hover {
+			transform: translateY(-1px);
+			box-shadow: var(--card-hover--shadow);
+		}
+	}
+}
+
+/* Tags. */
+.section-tags-card {
+	border-color: transparent;
+	background-color: var(--color-background);
+	box-shadow: var(--card--shadow);
+	transition: transform .2s ease, box-shadow .2s ease;
+
+	&:hover {
+		box-shadow: var(--card-hover--shadow);
+		transform: translateY(-1px);
+	}
+}
+
+/* Widget toc. */
+.widget-toc {
+	margin-top: calc(var(--layout--gap) * -1 - var(--spacing-3));
+	padding-top: calc(var(--layout--gap) + var(--spacing-3));
+}
+
+/* Error page card. */
+.page-error-card {
+	padding: calc(var(--layout--gap) - var(--spacing-2)) var(--layout--gap);
+}
+
+/* Pagination. */
+.section-posts-pagination {
+	> .button {
+		--button--font-size: var(--font-small);
+		--button--color: var(--color-contrast);
+		--button--background-color: var(--color-background-300);
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		flex: 1 0 0%;
+		border-top: 1px solid var(--color-border);
+	}
+}
+
+.section-posts-pagination-next {
+	margin-top: var(--layout--gap);
+}
+
+.section-posts-pagination-prev {
+	margin-bottom: var(--layout--gap);
+}
+
+/* Disable border. */
+.section-recommendations .card-recommendation,
+.section-pricing .pricing {
+	border: 0;
+}
+
+/* Footer. */
+.footer {
+	margin-top: calc(var(--layout--gap) * 2);
+}

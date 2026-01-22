@@ -1,0 +1,11 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.page-error-card {
+	position: sticky;
+	top: var(--layout--gap);
+	left: 0;
+
+	> p {
+		margin-top: var(--spacing-4);
+	}
+}

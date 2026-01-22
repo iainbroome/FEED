@@ -1,0 +1,19 @@
+<div class="popover popover-hide">
+	<div class="popover-container">
+		{{#if cover_image}}
+			{{> "components/image" src=cover_image alt=(t "Cover {author}" author=name)}}
+		{{/if}}
+
+		<a href="{{url}}" tabindex="-1">
+			{{> "components/avatar" src=profile_image}}
+		</a>
+
+		<div><a href="{{url}}">{{name}}</a></div>
+
+		{{#if location}}
+			<span>{{location}}</span>
+		{{/if}}
+
+		{{> "components/social-links-author"}}
+	</div>
+</div>

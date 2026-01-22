@@ -1,0 +1,49 @@
+.section-recommendations {
+	> div {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+/* Card. */
+.section-recommendations .card-recommendation {
+	position: relative;
+	padding: var(--layout--gap);
+	flex: 1 0 200px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-3);
+
+	> a {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+	}
+
+	> h3 {
+		display: inline;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+
+		> picture {
+			display: inline;
+			float: left;
+			margin-right: var(--spacing-4);
+			margin-bottom: calc(var(--spacing-1) * -1);
+
+			> img {
+				--placeholder--content: "";
+				--placeholder--padding: 0;
+				--placeholder--background-color: var(--color-background-300);
+
+				width: 22px;
+				height: 22px;
+				object-fit: cover;
+				border-radius: var(--radius-1);
+			}
+		}
+	}
+
+	> p {
+		margin-top: var(--spacing-4);
+	}
+}

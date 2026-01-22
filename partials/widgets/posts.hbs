@@ -1,0 +1,23 @@
+{{#if posts}}
+	<section class="widget-posts">
+		{{#if is_related}}
+			<h2 class="widget-heading">{{{t "{icon} Related posts" icon='<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.09375 8H24.5938M7.09375 15.5H24.5938M7.09375 23H24.5938" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round"/></svg>'}}}</h2>
+		{{else}}
+			<h2 class="widget-heading">{{{t "{icon} Featured" icon='<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.89063 8.05607C6.93555 10.8281 5.33595 14.0064 5.33595 16.9697C5.33595 19.6316 6.45948 22.1845 8.45938 24.0667C10.4593 25.949 13.1717 27.0065 16 27.0065C18.8283 27.0065 21.5408 25.949 23.5407 24.0667C25.5405 22.1845 26.6643 19.6316 26.6643 16.9697C26.6643 10.7564 22.0939 5.97703 18.3867 2.5L13.9688 11.2344L8.89063 8.05607Z" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'}}}</h2>
+		{{/if}}
+
+		{{#foreach posts}}
+			<article class="widget-posts-card {{post_class}}">
+				<h3>
+					<a href="{{url}}">{{title}}</a>
+				</h3>
+
+				{{#if custom_excerpt}}
+					<p>{{custom_excerpt}}</p>
+				{{else if excerpt}}
+					<p>{{excerpt}}</p>
+				{{/if}}
+			</article>
+		{{/foreach}}
+	</section>
+{{/if}}

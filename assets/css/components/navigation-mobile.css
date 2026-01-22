@@ -1,0 +1,116 @@
+:root {
+	--navigation-mobile--icon--size: 1.25rem;
+}
+
+@media (--breakpoint-max-sm) {
+	body:has(> .navigation-mobile) {
+		padding-bottom: calc(var(--navigation-mobile--icon--size) + var(--spacing-5) * 2 + var(--spacing-6));
+	}
+}
+
+.navigation-mobile {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 10000;
+	width: calc(100% - var(--scrollbar-width, 0px));
+	background-color: color-mix(in srgb, var(--color-background), transparent 20%);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 -1px 0 0 var(--color-border);
+
+	@media (--breakpoint-sm) {
+		display: none;
+	}
+
+	> ul {
+		position: relative;
+		display: flex;
+		margin: 0;
+		padding: 0 var(--spacing-5);
+		list-style: none;
+
+		> li {
+			flex: 1 0 0%;
+		}
+	}
+
+	.nav-link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: var(--spacing-5) var(--spacing-3);
+		border-radius: 50%;
+		color: var(--color-contrast);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-medium);
+
+		&::after {
+			z-index: -1;
+			width: calc(var(--navigation-mobile--icon--size) + var(--spacing-6));
+			height: calc(var(--navigation-mobile--icon--size) + var(--spacing-6));
+			margin-right: calc(var(--spacing-6) * -0.5);
+			margin-left: calc(var(--navigation-mobile--icon--size) * -1 - var(--spacing-6) * 0.5);
+			border-radius: 50%;
+			background-color: transparent;
+			transition: background-color .15s ease-in-out;
+			content: "";
+		}
+
+		> .label {
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			z-index: 1;
+			width: max-content;
+			max-width: calc(100vw - var(--spacing-7));
+			margin-bottom: var(--spacing-2);
+			padding: var(--spacing-2) var(--spacing-5);
+			border-radius: 2rem;
+			background-color: var(--color-background-300);
+			opacity: 0;
+			transform: translateX(-50%);
+			pointer-events: none;
+		}
+
+		> svg {
+			width: var(--navigation-mobile--icon--size);
+			height: var(--navigation-mobile--icon--size);
+		}
+
+		&:hover > .label,
+		&:focus-visible > .label {
+			opacity: 1;
+		}
+	}
+
+	.nav-link:hover::after,
+	.nav-link-current::after {
+		background-color: var(--color-background-300);
+	}
+
+	button.nav-link {
+		border: 0;
+		background-color: transparent;
+		cursor: pointer;
+	}
+}
+
+/* Hide items. */
+@media (width <= 440px) and (width >= 380px) {
+	.navigation-mobile li:nth-child(n+9) {
+		display: none;
+	}
+}
+
+@media (width <= 380px) and (width >= 340px) {
+	.navigation-mobile li:nth-child(n+8) {
+		display: none;
+	}
+}
+
+@media (width <= 340px) {
+	.navigation-mobile li:nth-child(n+7) {
+		display: none;
+	}
+}

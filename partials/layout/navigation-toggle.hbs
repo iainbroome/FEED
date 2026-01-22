@@ -1,0 +1,11 @@
+<div class="navigation-toggle-item">
+	<button class="nav-link navigation-toggle{{#unless @site.secondary_navigation}} navigation-toggle-no-secondary{{/unless}}" data-popup-toggle="#popup-navigation" aria-expanded="false">
+		<span class="screen-reader-text">{{t "Open a popup with navigation"}}</span>
+		{{#unless hide_icon}}
+			{{> "icons-menu/more"}}
+		{{/unless}}
+		{{#if label}}
+			<span class="label">{{label}}</span>
+		{{/if}}
+	</button>
+</div>

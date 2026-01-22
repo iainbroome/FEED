@@ -1,0 +1,43 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{!-- Everything inside the #page block pulls data from the page. --}}
+{{#page}}
+	<article class="post custom-page">
+		{{!-- Hero. --}}
+		{{> "sections/hero"}}
+
+		{{!-- Posts. --}}
+		{{#get "authors" include="count.posts" limit="100" order="count.posts DESC"}}
+			{{#if authors}}
+				<section class="section-authors">
+					<h2 class="screen-reader-text">{{t "Authors List"}}</h2>
+
+					<div class="section-authors-list">
+						{{#foreach authors}}
+							<div class="section-authors-card">
+								<a href="{{url}}"></a>
+								{{> "components/avatar" src=profile_image}}
+
+								<h3>{{name}}</h3>
+
+								{{#if location}}
+									<span>
+										<span>{{location}}</span>
+										<span>{{plural count.posts empty='' singular=(t "% post") plural=(t "% posts")}}</span>
+									</span>
+								{{else if count.posts}}
+									<span>{{plural count.posts empty='' singular=(t "% post") plural=(t "% posts")}}</span>
+								{{/if}}
+							</div>
+						{{/foreach}}
+					</div>
+				</section>
+			{{/if}}
+		{{/get}}
+
+		{{!-- Content. --}}
+		{{> "post/content"}}
+	</article>
+{{/page}}
+

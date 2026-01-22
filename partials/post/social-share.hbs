@@ -1,0 +1,51 @@
+{{!-- X. --}}
+<li>
+	<a href="https://x.com/intent/tweet?url={{encode url absolute=true}}&text={{encode title}}" rel="noopener" target="_blank">
+		{{> "icons-social/twitter"}}
+		<span class="label">{{t 'Share on X'}}</span>
+	</a>
+</li>
+
+{{!-- Facebook. --}}
+<li>
+	<a href="https://www.facebook.com/sharer/sharer.php?u={{encode url absolute=true}}&quote={{encode title}}" rel="noopener" target="_blank">
+		{{> "icons-social/facebook"}}
+		<span class="label">{{t 'Share on Facebook'}}</span>
+	</a>
+</li>
+
+{{!-- LinkedIn. --}}
+<li>
+	<a href="https://www.linkedin.com/sharing/share-offsite/?url={{encode url absolute=true}}&summary={{encode title}}" rel="noopener" target="_blank">
+		{{> "icons-social/linkedin"}}
+		<span class="label">{{t 'Share on LinkedIn'}}</span>
+	</a>
+</li>
+
+{{!-- Pinterest. --}}
+<li>
+	<a href="https://www.pinterest.com/pin/create/button/?url={{encode url absolute=true}}&description={{encode title}}" rel="noopener" target="_blank">
+		{{> "icons-social/pinterest"}}
+		<span class="label">{{t 'Share on Pinterest'}}</span>
+	</a>
+</li>
+
+{{!-- Email. --}}
+<li>
+	<a href="mailto:?subject={{encode title}}&body={{encode url absolute=true}}" rel="noopener" target="_blank">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M22 7L13.03 12.7C12.7213 12.8934 12.3643 12.996 12 12.996C11.6357 12.996 11.2787 12.8934 10.97 12.7L2 7M20 4H4.00001C2.89544 4 2 4.89542 2 5.99999V18C2 19.1046 2.89544 20 4.00001 20H20C21.1046 20 22 19.1046 22 18V5.99999C22 4.89542 21.1046 4 20 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+		<span class="label">{{t 'Email'}}</span>
+	</a>
+</li>
+
+{{!-- Copy link. --}}
+<li>
+	<button data-clipboard-text="{{url absolute=true}}">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M9.99988 13C10.4293 13.5741 10.9772 14.0492 11.6064 14.3929C12.2356 14.7367 12.9314 14.9411 13.6465 14.9923C14.3617 15.0435 15.0794 14.9404 15.7513 14.6898C16.423 14.4392 17.033 14.0471 17.5399 13.54L20.5399 10.54C21.4507 9.59699 21.9547 8.33397 21.9433 7.02299C21.9319 5.712 21.406 4.45794 20.479 3.53091C19.552 2.60387 18.2978 2.07803 16.9868 2.06663C15.6758 2.05524 14.4129 2.55921 13.4699 3.47L11.7499 5.18M13.9999 11C13.5705 10.4259 13.0226 9.95081 12.3934 9.60704C11.7642 9.26328 11.0685 9.05886 10.3533 9.00765C9.63816 8.95643 8.92036 9.05961 8.2486 9.3102C7.57686 9.56079 6.96684 9.95291 6.45996 10.46L3.45996 13.46C2.54916 14.403 2.04519 15.666 2.05659 16.977C2.06797 18.288 2.59383 19.542 3.52086 20.469C4.4479 21.3961 5.70196 21.9219 7.01295 21.9333C8.32393 21.9447 9.58695 21.4407 10.53 20.53L12.24 18.82" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+		<span class="label">{{t 'Copy link'}}</span>
+	</button>
+</li>

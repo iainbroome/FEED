@@ -1,0 +1,149 @@
+@import url('../_breakpoints.css');
+
+:root {
+	--navigation-bar--link--padding-v: var(--spacing-2);
+	--navigation-bar--link--padding-h: var(--spacing-5);
+}
+
+.navbar {
+	--avatar--size: 34px;
+	--avatar--font-size: var(--font-small);
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-8);
+	margin-top: var(--navigation-bar--link--padding-v);
+
+	/* Button member. */
+	.navbar-button-member {
+		margin-top: calc(var(--navigation-bar--link--padding-v) * -1);
+		align-self: flex-start;
+
+		> .label {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			opacity: 0;
+			clip-path: inset(50%);
+			overflow: hidden;
+		}
+
+		svg {
+			width: 1rem;
+			height: 1rem;
+			color: var(--color-contrast);
+		}
+	}
+}
+
+/* Navigation. */
+.navigation-bar {
+	display: block;
+	margin-top: calc(var(--navigation-bar--link--padding-v) * -1);
+	font-size: 0;
+	font-weight: 450;
+	text-align: center;
+	flex: 1 0 0%;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	> ul {
+		display: inline;
+
+		> li,
+		> li.nav-item {
+			position: relative;
+			display: inline-block;
+		}
+	}
+
+	.nav-link {
+		position: relative;
+		display: inline-block;
+		margin: calc(var(--spacing-1) * 0.5) var(--spacing-1);
+		padding: var(--navigation-bar--link--padding-v) var(--navigation-bar--link--padding-h);
+		border-radius: calc(0.5lh + var(--navigation-bar--link--padding-v));
+		background-color: transparent;
+		color: var(--color-contrast);
+		font-size: var(--font-medium);
+		text-decoration: none;
+
+		/* Zone hover. */
+		&::before {
+			content: "";
+			position: absolute;
+			inset: calc(var(--spacing-1) * -0.5) calc(var(--spacing-1) * -1);
+		}
+	}
+
+	button.nav-link {
+		cursor: pointer;
+		border: 0;
+	}
+
+	.nav-link-current,
+	.nav-item:hover > .nav-link,
+	.nav-link:hover {
+		background-color: var(--color-grey-translucent);
+		color: var(--color-contrast);
+	}
+
+	.navigation-toggle-item {
+		display: inline;
+	}
+
+	/* Section. */
+	.nav-section {
+		display: none;
+	}
+
+	/* Toggle popup. */
+	.navigation-toggle {
+		border: 0;
+	}
+
+	/* Dropdown. */
+	.dropdown-toggle {
+		margin-right: -2px;
+		margin-left: -10px;
+		vertical-align: -2px;
+	}
+
+	.dropdown {
+		--dropdown--offset: var(--spacing-5);
+		--navigation-bar--link--padding-v: var(--spacing-3);
+
+		right: auto;
+		left: calc(var(--spacing-2) * -1 + 1px);
+
+		> ul {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-1);
+			padding: var(--spacing-2);
+			text-align: left;
+
+			> li {
+				display: block;
+			}
+		}
+
+		.nav-link {
+			display: block;
+			width: 100%;
+			margin: 0;
+			border-radius: calc(var(--dropdown--radius) - var(--spacing-3));
+		}
+	}
+}
+
+@media (--breakpoint-max-sm) {
+	.navigation-bar > ul,
+	.navigation-bar > .navigation-toggle-item {
+		display: none;
+	}
+}

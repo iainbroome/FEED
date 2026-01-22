@@ -1,0 +1,165 @@
+@import url('../_breakpoints.css');
+
+.post + .section-comments,
+.author + .section-posts,
+.tag + .section-posts,
+.section-hero + .section-posts,
+.section-pricing + .post-content {
+	border-top: 1px solid var(--color-border);
+}
+
+/* Form subscribe. */
+.form-subscribe-fields > input {
+	background-color: var(--color-background);
+	box-shadow: 0 2px 10px -4px rgb(0 0 0 / 10%);
+}
+
+/* Content. */
+.content {
+	border-right: 1px solid var(--color-border);
+	border-left: 1px solid var(--color-border);
+
+	@media (--breakpoint-max-xs) {
+		border-left: 0;
+		border-right: 0;
+	}
+}
+
+/* Sidebar navigation. */
+.sidebar-navigation {
+	padding: calc(var(--layout--gap) - var(--spacing-2)) var(--layout--gap) var(--layout--gap);
+}
+
+/* Sidebar widgets. */
+.sidebar-widgets {
+	padding: calc(var(--layout--gap) - var(--spacing-2)) var(--layout--gap) var(--layout--gap);
+}
+
+/* Navbar. */
+.navbar {
+	padding: calc(var(--layout--gap) - var(--spacing-2)) var(--layout--gap) var(--layout--gap) var(--layout--gap);
+	border-bottom: 1px solid var(--color-border);
+}
+
+/* Hero. */
+.custom-page > .section-hero {
+	padding: calc(var(--layout--gap) - var(--spacing-2)) var(--layout--gap);
+}
+
+/* Author page cover. */
+.author-cover {
+	--avatar--border-compensate: 1px;
+
+	margin: calc(var(--layout--gap) * -1 - 1px) calc(var(--layout--gap) * -1 - 1px) 0;
+}
+
+/* Tag page feature image. */
+.tag > picture {
+	margin: calc(var(--layout--gap) * -1 - 1px) calc(var(--layout--gap) * -1 - 1px) 0;
+}
+
+/* Authors. */
+.section-authors {
+	padding-right: var(--layout--gap);
+	padding-bottom: var(--layout--gap);
+	padding-left: var(--layout--gap);
+}
+
+.section-authors-list {
+	gap: var(--spacing-5);
+
+	.section-authors-card {
+		min-height: calc(var(--avatar--size) + var(--spacing-4) * 2 + 2px);
+		border: 1px solid var(--color-border);
+		border-radius: calc(var(--avatar--size) * 0.5 + var(--spacing-4) + 1px);
+		transition: border-color .15s ease, background-color .15s ease;
+
+		&:hover {
+			border-color: var(--color-background-200);
+			background-color: var(--color-background-200);
+		}
+	}
+}
+
+/* Recommendations. */
+.section-recommendations {
+	padding: 0 var(--layout--gap);
+
+	> div {
+		gap: var(--spacing-5);
+	}
+
+	.card-recommendation {
+		transition: background-color .15s ease, border-color .15s ease;
+
+		&:hover {
+			background-color: var(--color-background-200);
+			border-color: var(--color-background-200);
+		}
+	}
+}
+
+/* Tags. */
+.section-tags {
+	padding-right: var(--layout--gap);
+	padding-bottom: var(--layout--gap);
+	padding-left: var(--layout--gap);
+
+	.section-tags-card {
+		min-height: calc(var(--avatar--size) + var(--spacing-4) * 2 + 2px);
+		transition: border-color .15s ease, background-color .15s ease;
+
+		&:hover {
+			border-color: var(--color-background-200);
+			background-color: var(--color-background-200);
+		}
+	}
+}
+
+/* Widget toc. */
+.widget-toc {
+	margin-top: calc(var(--layout--gap) * -1 + var(--spacing-2));
+	padding-top: calc(var(--layout--gap) - var(--spacing-2));
+}
+
+/* Page error. */
+.page-error-card {
+	padding: var(--layout--gap);
+}
+
+/* Pagination. */
+.section-posts-pagination {
+	> .button {
+		--button--padding-v: var(--layout--gap);
+		--button--border-radius: 0px;
+		--button--font-size: var(--font-small);
+		--button--color: var(--color-contrast);
+		--button--background-color: var(--color-background-100);
+		--button-hover--color: var(--color-contrast);
+		--button-hover--background-color: var(--color-background-200);
+
+		flex: 0 0 100%;
+	}
+}
+
+.section-posts-pagination-next {
+	border-top: 1px solid var(--color-border);
+}
+
+.section-posts-pagination-prev {
+	border-bottom: 1px solid var(--color-border);
+}
+
+/* Pricing. */
+
+.section-pricing {
+	padding-right: var(--layout--gap);
+	padding-bottom: var(--spacing-3);
+	padding-left: var(--layout--gap);
+}
+
+/* Footer. */
+.footer {
+	padding: var(--layout--gap) var(--layout--gap) calc(var(--layout--gap) - var(--spacing-2));
+	border-top: 1px solid var(--color-border);
+}

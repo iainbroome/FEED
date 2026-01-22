@@ -1,0 +1,38 @@
+.widget-author-card {
+	/* Bio. */
+	> p {
+		margin-top: var(--spacing-6);
+	}
+}
+
+.widget-author-card-head {
+	display: flex;
+	gap: var(--spacing-1) var(--spacing-4);
+
+	&:has(> span) {
+		display: grid;
+		grid-template-columns: var(--avatar--size) minmax(0, 1fr);
+	}
+
+	/* Avatar. */
+	> a {
+		grid-row: span 2;
+	}
+
+	/* Name. */
+	> h3 {
+		align-self: center;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
+	/* Location. */
+	> span {
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+	}
+}

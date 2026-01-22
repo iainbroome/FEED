@@ -1,0 +1,15 @@
+/* Loader. */
+.icon-loader path {
+	animation: format-icon-loader 0.5s infinite linear;
+	transform-origin: 50% 50%;
+}
+
+@keyframes format-icon-loader {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

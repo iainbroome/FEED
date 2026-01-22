@@ -1,0 +1,122 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.post-content {
+	.kg-audio-card {
+		position: relative;
+		min-height: auto;
+		padding: var(--spacing-7) var(--spacing-8);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2);
+		background-color: transparent;
+		color: var(--color-contrast);
+		box-shadow: none;
+	}
+
+	.kg-audio-thumbnail {
+		position: absolute;
+		top: var(--spacing-7);
+		left: var(--spacing-8);
+		width: 22px;
+		min-width: auto;
+		height: 22px;
+		margin: 0;
+		border-radius: 0;
+	}
+
+	.kg-audio-thumbnail.placeholder {
+		&::before {
+			content: '';
+			width: 0.75rem;
+			height: 0.75rem;
+			background-color: var(--color-accent-foreground);
+			mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12V3.33333L14 2V10.6667" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 14C5.10457 14 6 13.1046 6 12C6 10.8954 5.10457 10 4 10C2.89543 10 2 10.8954 2 12C2 13.1046 2.89543 14 4 14Z" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12.6667C13.1046 12.6667 14 11.7713 14 10.6667C14 9.56212 13.1046 8.66669 12 8.66669C10.8954 8.66669 10 9.56212 10 10.6667C10 11.7713 10.8954 12.6667 12 12.6667Z" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+			mask-size: 100% 100%;
+		}
+
+		svg {
+			display: none;
+		}
+	}
+
+	.kg-audio-player-container {
+		display: block;
+	}
+
+	.kg-audio-seek-slider {
+		display: block;
+		flex-basis: 0;
+	}
+
+	.kg-audio-title {
+		display: flex;
+		align-items: center;
+		min-height: 22px;
+		margin-top: 0;
+		margin-bottom: var(--spacing-6);
+		padding: 0 0 0 calc(var(--spacing-4) + 22px);
+		color: var(--color-contrast);
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+	}
+
+	.kg-audio-player {
+		flex-wrap: wrap;
+		gap: var(--spacing-3);
+		padding: 0;
+	}
+
+	.kg-audio-pause-icon,
+	.kg-audio-play-icon {
+		width: 1rem;
+		height: 1rem;
+		padding-right: 0;
+
+		> svg {
+			width: var(--font-x-small);
+			height: var(--font-x-small);
+		}
+	}
+
+	.kg-audio-current-time {
+		min-width: 2.25rem;
+		padding: 0;
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-regular);
+		text-align: right;
+	}
+
+	.kg-audio-time {
+		width: auto;
+		max-width: 3.25rem;
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-regular);
+	}
+
+	.kg-audio-duration {
+		min-width: 2.25rem;
+		margin-left: var(--spacing-3);
+		padding: 0;
+	}
+
+	.kg-audio-playback-rate {
+		justify-content: center;
+		min-width: 2rem;
+		padding: 0.15rem 0.25rem;
+		border-radius: 0.25rem;
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-regular);
+
+		&:hover {
+			box-shadow: 0 0 0 1px var(--color-border);
+		}
+	}
+
+	.kg-audio-volume-slider {
+		width: 3.75rem;
+	}
+
+	.kg-audio-unmute-icon {
+		margin-right: -6px;
+	}
+}

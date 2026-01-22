@@ -1,0 +1,228 @@
+{{!-- Author avatar. --}}
+{{#*inline "avatar-author"}}
+	{{#unless hide_avatar}}
+		{{#has tag="quotes"}}
+			{{!-- Don't show avatar for quote posts --}}
+		{{else}}
+			{{#primary_author}}
+				<a href="{{url}}" class="section-posts-card-avatar popover-target">
+					{{#if @first}}
+						{{> "components/avatar" size=../size src=profile_image fast=true}}
+					{{else}}
+						{{> "components/avatar" size=../size src=profile_image}}
+					{{/if}}
+				</a>
+				{{> "components/author-popover" avatar_size=../size}}
+			{{/primary_author}}
+		{{/has}}
+	{{/unless}}
+{{/inline}}
+
+{{!-- Primary tag. --}}
+{{#*inline "primary-tag"}}
+	{{#unless hide_tag}}
+		{{#primary_tag}}
+			<a href="{{url}}">{{name}}</a>
+		{{/primary_tag}}
+	{{/unless}}
+{{/inline}}
+
+{{!-- Excerpt. --}}
+{{#*inline "excerpt"}}
+	{{#has tag="quotes"}}
+		{{!-- Don't show excerpt for quote posts --}}
+	{{else has tag="link"}}
+		{{!-- Don't show excerpt for linked posts since it contains the URL --}}
+	{{else}}
+		{{#if custom_excerpt}}
+			<p>{{custom_excerpt}}</p>
+		{{else if excerpt}}
+			<p>{{excerpt}}</p>
+		{{/if}}
+	{{/has}}
+{{/inline}}
+
+{{#> "settings/post-card-style"}}
+	{{#if posts}}
+		<section class="section-posts section-posts-style-{{slug}}">
+			<h2 class="screen-reader-text">{{title}}</h2>
+
+			{{#if pagination.prev}}
+				<div class="section-posts-pagination section-posts-pagination-prev">
+					{{pagination page=pagination.prev type="load-more" prepend=".posts-list" label=(t "Previous Posts")}}
+				</div>
+			{{/if}}
+
+			<div class="posts-list">
+				{{#foreach posts}}
+					{{!--
+						Classic style.
+					--}}
+					{{#match ../slug "classic"}}
+						<article class="{{post_class}}{{#has tag="link"}} post-card-link{{/has}}{{#has tag="quotes"}} post-card-quote{{/has}}">
+							{{#has tag="quotes"}}
+	{{!-- For quote posts, show only status icons --}}
+	<div class="post-head">
+		{{> "post/status-icons" stroke_width="1.5"}}
+	</div>
+{{else}}
+	{{> "post/header" hide_avatar=../hide_avatar hide_tag=../hide_tag is_post_card=true}}
+{{/has}}
+
+							{{!-- Classic full. --}}
+							{{#if ../full}}
+								{{!-- Excerpt. --}}
+								{{> "excerpt" excerpt=false}}
+
+								{{!-- Media (featured image and video). --}}
+								<div class="post-media">
+									{{> "post/featured-image" fast=@first}}
+								</div>
+
+								{{!-- Content. --}}
+								{{> "post/content" is_post=true}}
+
+							{{!-- Classic Extended --}}
+							{{else if ../extended}}
+								{{!-- Excerpt. --}}
+								{{> "excerpt" excerpt=false}}
+
+								{{!-- Media (featured image and video). --}}
+								<div class="post-media">
+									{{> "post/featured-image" fast=@first}}
+								</div>
+
+								{{!-- Content. --}}
+								{{#if html}}
+									{{#if access}}
+										<div class="post-content">
+											{{{content words="100"}}}
+										</div>
+									{{else}}
+										<div class="post-content post-content-teaser">
+											{{{html}}}
+										</div>
+										{{> "content-cta" is_post=true}}
+									{{/if}}
+
+									{{#has tag="link"}}
+										<a href="{{excerpt}}" class="post-button post-button-external" target="_blank" rel="noopener">
+									{{else}}
+										<a href="{{url}}" class="post-button">
+									{{/has}}
+										<span class="screen-reader-text">{{title}}</span>
+										<span class="label">{{t "Read more"}}</span>
+									</a>
+								{{/if}}
+
+							{{!-- Classic. --}}
+							{{else}}
+								{{!-- Excerpt. --}}
+								{{> "excerpt"}}
+
+								{{!-- Media (featured image and video). --}}
+								<div class="post-media post-card-media">
+									{{> "post/featured-image" fast=@first}}
+									{{> "post/featured-video-preview"}}
+								</div>
+							{{/if}}
+
+							{{!-- Footer (disable for classic minimal). --}}
+							{{#unless ../minimal}}
+								{{> "post/footer" is_post_card=true}}
+							{{/unless}}
+						</article>
+
+					{{!--
+						List style
+					--}}
+					{{else match ../slug "list"}}
+						<article class="{{post_class}}{{#has tag="link"}} post-card-link{{/has}}{{#has tag="quotes"}} post-card-quote{{/has}}">
+							{{!-- Media (featured image and video). --}}
+							{{#has tag="link"}}
+								<div class="post-card-media" href="{{excerpt}}" tabindex="-1">
+									<a href="{{excerpt}}" tabindex="-1" target="_blank" rel="noopener"></a>
+							{{else}}
+								<div class="post-card-media" href="{{url}}" tabindex="-1">
+									<a href="{{url}}" tabindex="-1"></a>
+							{{/has}}
+								{{> "post/featured-image" featured_size="post-card-list" fast=@first}}
+								{{> "post/featured-video-preview"}}
+
+								{{> "post/status-icons" stroke_width="2"}}
+							</div>
+
+							<div class="section-posts-card-content">
+								{{!-- Title. --}}
+								{{#has tag="quotes"}}
+									{{!-- Don't show title for quote posts --}}
+								{{else has tag="link"}}
+									<h3><a href="{{excerpt}}" class="post-link-external" target="_blank" rel="noopener">{{title}}</a></h3>
+								{{else}}
+									<h3><a href="{{url}}">{{title}}</a></h3>
+								{{/has}}
+
+								{{!-- Excerpt. --}}
+								{{> "excerpt"}}
+
+								{{!-- Footer. --}}
+								<div class="post-footer">
+									{{> "avatar-author" size="small"}}
+									{{> "post/date"}}
+									{{> "post/button-comments" href=(concat url "#comments") stroke_width="2"}}
+									{{> "post/button-share" stroke_width="2"}}
+								</div>
+							</div>
+						</article>
+
+					{{!--
+						Grid style.
+					--}}
+					{{else}}
+						<article class="{{post_class}}{{#has tag="link"}} post-card-link{{/has}}{{#has tag="quotes"}} post-card-quote{{/has}}">
+							{{!-- Media (featured image and video). --}}
+							{{#has tag="link"}}
+								<div class="post-card-media" href="{{excerpt}}" tabindex="-1">
+									<a href="{{excerpt}}" tabindex="-1" target="_blank" rel="noopener"></a>
+							{{else}}
+								<div class="post-card-media" href="{{url}}" tabindex="-1">
+									<a href="{{url}}" tabindex="-1"></a>
+							{{/has}}
+								{{> "post/featured-image" featured_size="post-card-grid" fast=@first}}
+								{{> "post/featured-video-preview"}}
+
+								{{> "post/status-icons" stroke_width="2"}}
+							</div>
+
+							{{!-- Title. --}}
+							{{#has tag="quotes"}}
+								{{!-- Don't show title for quote posts --}}
+							{{else has tag="link"}}
+								<h3><a href="{{excerpt}}" class="post-link-external" target="_blank" rel="noopener">{{title}}</a></h3>
+							{{else}}
+								<h3><a href="{{url}}">{{title}}</a></h3>
+							{{/has}}
+
+							{{!-- Excerpt. --}}
+							{{> "excerpt"}}
+
+							{{!-- Footer. --}}
+							<div class="post-footer">
+								{{> "avatar-author" size="small"}}
+								{{> "post/date"}}
+								{{> "post/button-comments" href=(concat url "#comments") stroke_width="2"}}
+								{{> "post/button-share" stroke_width="2"}}
+							</div>
+						</article>
+					{{/match}}
+				{{/foreach}}
+			</div>
+
+			{{#if pagination.next}}
+				<div class="section-posts-pagination section-posts-pagination-next">
+					{{pagination page=pagination.next append=".posts-list" label=(t "Load More")}}
+				</div>
+			{{/if}}
+		</section>
+	{{/if}}
+{{/"settings/post-card-style"}}

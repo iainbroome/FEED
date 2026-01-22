@@ -1,0 +1,136 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.button,
+button[type='submit'] {
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-2);
+	min-width: var(--button--min-width);
+	min-height: var(--button--min-height);
+	padding: var(--button--padding-v) var(--button--padding-h);
+	border: 0;
+	border-radius: var(--button--border-radius);
+	background-color: var(--button--background-color);
+	color: var(--button--color);
+	font-family: var(--font-family-button);
+	font-size: var(--button--font-size);
+	font-weight: var(--button--font-weight);
+	line-height: var(--button--line-height);
+	text-align: center;
+	text-decoration: none;
+	opacity: var(--button--opacity);
+	transition: var(--button--transition);
+	cursor: pointer;
+	outline-offset: 2px;
+
+	svg:where(:not(.icon-loader, .icon-check)) {
+		display: block;
+	}
+
+	span:empty {
+		display: none;
+	}
+
+	&:focus-visible {
+		clip-path: none;
+	}
+
+	&:disabled,
+	&[disabled] {
+		--button--opacity: 0.2;
+		--button-hover--opacity: 0.2;
+
+		cursor: not-allowed;
+	}
+}
+
+.button:not(:disabled, [disabled]):hover,
+.button:not(:disabled, [disabled]):focus-visible,
+button[type='submit']:not(:disabled, [disabled]):hover,
+button[type='submit']:not(:disabled, [disabled]):focus-visible,
+.button[aria-expanded='true'] {
+	background-color: var(--button-hover--background-color);
+	color: var(--button-hover--color);
+	opacity: var(--button-hover--opacity);
+}
+
+/* Link. */
+.button-link {
+	--button--padding-v: 0px;
+	--button--padding-h: 0px;
+	--button--min-height: none;
+	--button--border-radius: 0;
+	--button--color: var(--color-secondary);
+	--button--background-color: transparent;
+	--button-hover--color: var(--color-contrast);
+	--button-hover--background-color: transparent;
+	--button-hover--opacity: 1;
+}
+
+/* Pagination. */
+.pagination-button {
+	> .loader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: none;
+		transform: translate(-50%, -50%);
+
+		svg {
+			width: 1.25em;
+			height: 1.25em;
+		}
+	}
+
+	> .complete {
+		display: none;
+	}
+
+	&.loading {
+		> .loader {
+			display: flex;
+		}
+
+		> .label {
+			visibility: hidden;
+		}
+	}
+
+	&.complete {
+		> .label {
+			display: none;
+		}
+
+		> .complete {
+			display: block;
+		}
+	}
+
+	&.loading,
+	&.complete {
+		--button-hover--color: var(--color-contrast);
+		--button-hover--background-color: transparent;
+
+		cursor: default;
+
+		> .icon {
+			display: none;
+		}
+	}
+}
+
+/* Button skip. */
+.button-skip {
+	position: absolute;
+	top: var(--spacing-4);
+	left: var(--spacing-4);
+	z-index: 99999;
+
+	&:not(:focus-visible) {
+		opacity: 0;
+		pointer-events: none;
+	}
+}

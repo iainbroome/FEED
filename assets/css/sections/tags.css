@@ -1,0 +1,103 @@
+.section-tags-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-5);
+}
+
+.section-tags-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: calc(var(--avatar--size) + var(--spacing-4) * 2 + 2px);
+	padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) calc(var(--avatar--size) + var(--spacing-4) * 2);
+	border: 1px solid var(--color-border);
+	border-radius: 2rem;
+	flex: 1 0 200px;
+
+	> a {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+	}
+
+	/* Image. */
+	> figure {
+		margin: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+	}
+
+	> div {
+		border-radius: 50%;
+		background-color: var(--tag--color, var(--color-background-300));
+	}
+
+	> figure,
+	> div {
+		position: absolute;
+		top: var(--spacing-4);
+		left: var(--spacing-4);
+		width: var(--avatar--size);
+		height: var(--avatar--size);
+	}
+
+	/* Name. */
+	> h3 {
+		margin-top: auto;
+		margin-bottom: auto;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
+	/* Location and count posts. */
+	> span {
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-medium);
+	}
+}
+
+/* Head. */
+.section-tags-card-head {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-1);
+	min-height: var(--avatar--size);
+	padding-left: calc(var(--avatar--size) + var(--spacing-4));
+
+	/* Avatar. */
+	> a {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	/* Name. */
+	> h3 {
+		margin-top: auto;
+		margin-bottom: auto;
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-medium);
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
+	/* Location. */
+	> span {
+		color: var(--color-secondary);
+		font-size: var(--font-small);
+		font-weight: var(--font-weight-medium);
+	}
+}

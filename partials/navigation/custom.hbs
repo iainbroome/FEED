@@ -1,0 +1,12 @@
+<ul{{#if class}} class="{{class}}"{{/if}}>
+	{{#foreach navigation}}
+		{{#match label '!=' '---'}}
+			{{#match (concat label.[0] label.[1]) "!=" '- '}}
+				{{#match (concat label.[0] label.[1]) "!=" '# '}}
+					<li>{{> "navigation/link" nav=../this item=this}}</li>
+				{{/match}}
+			{{/match}}
+		{{/match}}
+	{{/foreach}}
+	<li>{{> "layout/navigation-toggle" label=(t "More")}}</li>
+</ul>

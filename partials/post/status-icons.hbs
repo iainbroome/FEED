@@ -1,0 +1,46 @@
+<span class="post-status-icons">
+	{{#if featured}}
+		<span class="tooltip-target">
+			{{> "icons/flame"}}
+			<span class="tooltip">{{t "Featured post"}}</span>
+		</span>
+	{{/if}}
+	{{#has tag="#video"}}
+		<span class="tooltip-target">
+			{{> "icons/video"}}
+			<span class="tooltip">{{t "Video post"}}</span>
+		</span>
+	{{/has}}
+	{{#has tag="quotes"}}
+		<span class="tooltip-target">
+			{{> "icons/quotes"}}
+			<span class="tooltip">{{t "Quote post"}}</span>
+		</span>
+	{{/has}}
+	{{#has tag="link"}}
+		<span class="tooltip-target">
+			{{> "icons/link"}}
+			<span class="tooltip">{{t "Link post"}}</span>
+		</span>
+	{{/has}}
+	{{#has tag="newsletter"}}
+		<span class="tooltip-target">
+			{{> "icons/newsletter"}}
+			<span class="tooltip">{{t "Newsletter"}}</span>
+		</span>
+	{{/has}}
+	{{#unless access}}
+		<span class="tooltip-target">
+			{{> "icons/lock"}}
+			<span class="tooltip">
+				{{#has visibility="paid"}}
+					{{t "Members-only post"}}
+				{{else has visibility="tiers"}}
+					{{tiers}}
+				{{else}}
+					{{t "For members"}}
+				{{/has}}
+			</span>
+		</span>
+	{{/unless}}
+</span>

@@ -1,0 +1,16 @@
+.form-subscribe-fields {
+	position: relative;
+	width: 100%;
+
+	> input {
+		min-height: 2.75rem; /* 44px */
+		border-radius: 2rem;
+	}
+
+	> button {
+		position: absolute;
+		width: auto;
+		margin-top: 0;
+		inset: var(--spacing-2) var(--spacing-2) var(--spacing-2) auto;
+	}
+}

@@ -1,0 +1,11 @@
+<footer class="post-footer">
+	{{> "post/date"}}
+
+	{{#if is_post_card}}
+		{{> "post/button-comments" href=(concat url "#comments") stroke_width="1.5"}}
+	{{else}}
+		{{> "post/button-comments" href="#comments" stroke_width="1.5"}}
+	{{/if}}
+
+	{{> "post/button-share" stroke_width="1.5"}}
+</footer>

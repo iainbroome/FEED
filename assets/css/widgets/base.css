@@ -1,0 +1,21 @@
+.widget-heading {
+	display: flex;
+	gap: var(--spacing-4);
+	margin-bottom: var(--spacing-7);
+	font-size: var(--font-medium);
+	font-weight: var(--font-weight-semibold);
+
+	> svg {
+		width: 1.133em;
+		height: 1.133em;
+		margin-top: .125em;
+	}
+
+	&::after {
+		margin-top: .6em;
+		margin-left: var(--spacing-2);
+		content: "";
+		flex: 1 0 0%;
+		border-top: 1px solid var(--color-border);
+	}
+}

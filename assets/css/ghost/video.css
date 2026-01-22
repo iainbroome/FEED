@@ -1,0 +1,23 @@
+.kg-video-card {
+	video {
+		border-radius: 0;
+		background-color: var(--color-background-300);
+	}
+
+	.kg-video-hide-animated > button {
+		visibility: hidden;
+	}
+
+	&.kg-width-full .kg-video-container {
+		border-radius: 0;
+	}
+
+	.kg-video-large-play-icon {
+		width: 3.125rem; /* 50px */
+		height: 3.125rem;
+
+		svg {
+			width: var(--font-small);
+		}
+	}
+}

@@ -1,0 +1,121 @@
+/* Text wrapper. */
+.kg-signup-card-text  {
+	padding: var(--signup--text--padding) !important;
+}
+
+/* Heading. */
+.kg-signup-card-heading {
+	font-size: var(--signup--heading--font-size) !important;
+	font-weight: var(--signup--heading--font-weight) !important;
+	line-height: var(--signup--heading--line-height, 1.2) !important;
+	letter-spacing: var(--signup--heading--letter-spacing, inherit) !important;
+}
+
+/* Subheading. */
+.kg-signup-card-subheading {
+	margin: var(--signup--subheading--margin, 0) !important;
+	font-size: var(--signup--subheading--font-size) !important;
+	font-weight: var(--signup--subheading--font-weight) !important;
+	line-height: var(--signup--subheading--line-height, inherit) !important;
+}
+
+/* Form. */
+.kg-signup-card-form {
+	margin: var(--signup--form--margin, 0) !important;
+}
+
+.kg-signup-card .kg-signup-card-fields {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+
+	> .kg-signup-card-input {
+		margin: 0;
+		outline: revert;
+	}
+
+	> .kg-signup-card-button {
+		margin: 0;
+		outline: revert;
+	}
+}
+
+/* Disclaimer. */
+.kg-signup-card-disclaimer {
+	margin: var(--signup--disclaimer--margin, 0) !important;
+}
+
+/* Layout split. */
+.kg-signup-card.kg-layout-split .kg-signup-card-content {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+/* Image cover. */
+.kg-signup-card.kg-layout-split:not(.kg-content-wide) picture {
+	aspect-ratio: 16/9;
+}
+
+/* Image contain. */
+.kg-signup-card.kg-layout-split.kg-content-wide .kg-signup-card-image {
+	height: auto !important;
+	padding: var(--layout--gap) !important;
+	aspect-ratio: 16/9;
+	object-fit: cover !important;
+}
+
+/* Form alerts. */
+.kg-signup-card-form.success .kg-signup-card-success {
+	height: auto !important;
+	min-height: 2.75rem;
+	font-size: inherit !important;
+	font-weight: var(--font-weight-medium) !important;
+	line-height: inherit !important;
+}
+
+/*
+ * Change colors for toggle color scheme.
+ */
+
+/* Background grey. */
+.kg-signup-card[style="background-color: rgb(240, 240, 240);"] {
+	background-color: var(--color-background-200) !important;
+
+	.kg-signup-card-heading {
+		color: var(--color-contrast) !important;
+	}
+
+	.kg-signup-card-subheading {
+		color: var(--color-foreground) !important;
+	}
+
+	.kg-signup-card-disclaimer {
+		color: var(--color-secondary) !important;
+	}
+}
+
+/* Background accent. */
+.kg-signup-card.kg-style-accent {
+	.kg-signup-card-heading,
+	.kg-signup-card-subheading,
+	.kg-signup-card-disclaimer {
+		color: var(--color-accent-foreground) !important;
+	}
+}
+
+/* Button accent. */
+.kg-signup-card .kg-style-accent {
+	color: var(--color-accent-foreground) !important;
+}
+
+/* Button black. */
+.kg-signup-card .kg-signup-card-button[style="background-color: #000000;color: #FFFFFF;"] {
+	background-color: var(--color-contrast) !important;
+	color: var(--color-background) !important;
+}
+
+/* Button white. */
+.kg-signup-card .kg-signup-card-button[style="background-color: #ffffff;color: #000000;"] {
+	background-color: var(--color-background) !important;
+	color: var(--color-contrast) !important;
+}

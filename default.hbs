@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" data-color-scheme="{{#match @custom.color_scheme "Dark"}}dark{{else match @custom.color_scheme "Light"}}light{{else}}system{{/match}}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{{!-- Custom title for page 404. --}}
+	{{#if (block "title")}}
+		<title>{{block "title"}}</title>
+
+	{{!-- Basic meta - advanced meta is output with {{ghost_head}} below --}}
+	{{else}}
+		<title>{{meta_title page=(t " (Page %)")}}</title>
+	{{/if}}
+
+	{{!-- Script for theme data --}}
+	{{> "theme-head-script"}}
+
+	{{!-- Script for color scheme --}}
+	{{#if @custom.display_color_scheme_toggle}}
+	{{> "color-scheme-head-script"}}
+	{{/if}}
+
+	{{!-- Preload scripts --}}
+	<link rel="preload" as="style" href="{{asset "built/index.css"}}">
+	<link rel="preload" as="script" href="{{asset "assets/vendors/pvs.min.js"}}">
+	<link rel="preload" as="script" href="{{asset "built/index.js"}}">
+
+	{{!-- Preload font. --}}
+	<link rel="preload" href="{{asset "vendors/Geist-Variable.woff2"}}" as="font" type="font/woff2" crossorigin>
+
+	{{!-- Preload main styles and scripts for better performance --}}
+	<style>
+		@font-face {
+			font-family: 'Geist';
+			font-display: swap;
+			src: url({{asset "vendors/Geist-Variable.woff2"}}) format("woff2-variations");
+			font-weight: 100 900;
+		}
+
+		:root {
+			--color-accent: {{@site.accent_color}};
+		}
+	</style>
+
+	{{!-- PVS styles. --}}
+	<link rel="stylesheet" type="text/css" href="{{asset "assets/vendors/pvs.min.css"}}">
+
+	{{!-- Theme styles. --}}
+	<link rel="stylesheet" type="text/css" href="{{asset "built/index.css"}}">
+
+	{{!-- Post card style. --}}
+	{{#> "settings/post-card-style" setting=(block "post-card-style")}}
+		<link rel="stylesheet" type="text/css" href="{{asset (concat "built/post-card-style/" slug ".css") }}">
+	{{/"settings/post-card-style"}}
+
+	{{!-- Sections style. --}}
+	{{#> "settings/sections-style" setting=(block "sections-style")}}
+		<link rel="stylesheet" type="text/css" href="{{asset (concat "built/sections-style/" slug ".css") }}">
+	{{/"settings/sections-style"}}
+
+	{{!-- Layout style. --}}
+	{{#> "settings/layout-style" setting=(block "layout-style")}}
+		<link rel="stylesheet" type="text/css" href="{{asset (concat "built/layout-style/" layout_slug ".css") }}">
+	{{/"settings/layout-style"}}
+
+	{{!-- Ivent. --}}
+	<script src="{{asset "assets/vendors/ivent.min.js"}}"></script>
+
+	{{!-- PVS. --}}
+	<script src="{{asset "assets/vendors/pvs.min.js"}}"></script>
+
+	{{!-- Custom styles. --}}
+	<link rel="stylesheet" type="text/css" href="{{asset "custom.css"}}">
+
+	{{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
+	{{ghost_head}}
+</head>
+
+<body class="{{body_class}}{{block "body-class"}}{{#> "settings/sections-style" setting=(block "sections-style")}} sections-style-{{slug}}{{/"settings/sections-style"}}">
+	{{!-- Skip to content. --}}
+	<a href="#content" class="button button-skip"><span class="label">{{t "Skip to Content"}}</span></a>
+
+	{{!-- Main content. --}}
+	{{#> "settings/layout-style" setting=(block "layout-style")}}
+		<main class="container">
+			{{!--
+				Sidebar.
+			--}}
+			{{#if show_sidebar_navigation}}
+				<aside class="sidebar-navigation-container">
+					<div class="sidebar-navigation">
+						{{> "components/logo"}}
+
+						{{#if @site.navigation}}
+							<nav class="navigation-sidebar" aria-label="{{t "Primary Navigation"}}">
+								{{navigation id="primary" sidebar=true collapse=true}}
+
+								{{> "layout/navigation-toggle" label=(t "More")}}
+							</nav>
+						{{else @site.secondary_navigation}}
+							<div class="navigation-sidebar">
+								{{> "layout/navigation-toggle" label=(t "More")}}
+							</div>
+						{{/if}}
+
+						{{> "layout/member-button" class="sidebar-button-member"}}
+					</div>
+				</aside>
+			{{/if}}
+
+			{{!--
+				Content.
+			--}}
+			<div class="content" id="content">
+				{{#if show_sidebar_navigation}}
+					<div class="navbar">
+						{{> "components/logo"}}
+					</div>
+				{{else}}
+					<div class="navbar">
+						{{> "components/logo"}}
+
+						<nav class="navigation-bar" aria-label="{{t "Primary Navigation"}}">
+							{{navigation id="primary" hide_icons=true sidebar=false collapse=false}}
+
+							{{> "layout/navigation-toggle" label=(t "More") hide_icon=true}}
+						</nav>
+
+						{{> "layout/member-button" class="navbar-button-member" hide_icon=true}}
+					</div>
+				{{/if}}
+
+				{{{body}}}
+
+				{{!-- Footer (show when hide sidebar widgets). --}}
+				{{> "layout/footer"}}
+			</div>
+
+			{{!--
+				Sidebar widgets.
+			--}}
+			{{#if show_sidebar_widgets}}
+				<div class="sidebar-widgets">
+					{{!-- Custom widgets. --}}
+					{{#if (block "sidebar-widgets")}}
+						{{{block "sidebar-widgets"}}}
+
+					{{!-- Default widgets. --}}
+					{{else}}
+						{{!-- Subscribe. --}}
+						{{> "widgets/subscribe"}}
+
+						{{!-- Featured. --}}
+						{{#get "posts" filter="featured:true" include="tags" limit="3"}}
+							{{> "widgets/posts"}}
+						{{/get}}
+
+						{{!-- Tags. --}}
+						{{#> "get-tags" setting=@custom.tags_list_widget}}
+							{{> "widgets/tags"}}
+						{{/"get-tags"}}
+
+						{{!-- Recommendations. --}}
+						{{> "widgets/recommendations"}}
+					{{/if}}
+
+					{{!-- Footer. --}}
+					{{> "widgets/footer"}}
+				</div>
+			{{/if}}
+		</main>
+	{{/"settings/layout-style"}}
+
+	{{!-- Mobile navigation. --}}
+	{{#if @site.navigation}}
+		<nav class="navigation-mobile" aria-label="{{t "Primary Mobile Navigation"}}">
+			{{navigation custom_navigation=true id="primary-mobile" sidebar=false}}
+		</nav>
+	{{/if}}
+
+	{{!-- Popup. --}}
+	<div class="popup popup-navigation" data-popup-id="popup-navigation">
+		<div class="popup-container">
+			<div class="popup-navigation-head">
+				<button class="button popup-close" aria-label="{{t 'Hide popup'}}">
+					{{> "icons/x"}}
+				</button>
+
+				{{> "components/logo"}}
+			</div>
+
+			{{#if @site.navigation}}
+				<nav class="navigation-sidebar navigation-primary" aria-label="{{t "Primary Popup Navigation"}}">
+					{{navigation id="primary-popup" custom_navigation=false sidebar=false collapse=true}}
+				</nav>
+			{{/if}}
+			{{#if @site.secondary_navigation}}
+				<nav class="navigation-sidebar navigation-secondary" aria-label="{{t "Secondary Popup Navigation"}}">
+					{{navigation id="secondary-popup" custom_navigation=false sidebar=false collapse=true type="secondary"}}
+				</nav>
+			{{/if}}
+
+			{{> "layout/member-button" class="popup-navigation-button-member"}}
+		</div>
+
+		<button class="popup-close popup-overlay" tabindex="-1" aria-label="{{t 'Hide popup navigation'}}"></button>
+	</div>
+
+	{{!-- PVS footer. --}}
+	<script src="{{asset "vendors/pvs-footer.min.js"}}"></script>
+
+	{{!-- Theme script. --}}
+	<script src="{{asset "built/index.js"}}"></script>
+
+	{{!-- Custom script. --}}
+	<script src="{{asset "custom.js"}}"></script>
+
+	{{!-- Ghost outputs required functional scripts with this tag, it should always be the last thing before the closing body tag --}}
+	{{ghost_foot}}
+</body>
+
+</html>

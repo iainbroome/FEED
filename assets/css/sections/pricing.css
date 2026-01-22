@@ -1,0 +1,179 @@
+.section-pricing {
+	.pricing-wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: auto;
+	}
+
+	/* Toggle. */
+	.pricing-toggle {
+		position: relative;
+		z-index: 1;
+		gap: var(--spacing-1);
+		margin-bottom: var(--spacing-8);
+		align-self: flex-start;
+	}
+
+	.pricing-trial {
+		display: none;
+	}
+
+	/* Toggles. */
+	.pricing-toggle-monthly,
+	.pricing-toggle-yearly {
+		--button--min-height: 2.125rem; /* 34px */
+		--button--font-size: var(--font-small);
+		--button--color: var(--color-contrast);
+		--button--background-color: transparent;
+		--button-hover--opacity: 1;
+		--button-hover--color: var(--color-contrast);
+		--button-hover--background-color: var(--color-background-300);
+	}
+
+	/* Active toggle. */
+	.pricing-toggle-input-monthly:checked
+		~ .pricing-toggle
+		> .pricing-toggle-monthly,
+	.pricing-toggle-input-yearly:checked
+		~ .pricing-toggle
+		> .pricing-toggle-yearly {
+		--button--background-color: var(--color-background-300);
+	}
+
+	/* List. */
+	.pricing-container {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-8);
+		width: 100%;
+	}
+
+	/* Item. */
+	.pricing {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding: var(--spacing-7) var(--spacing-8) var(--spacing-8);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-3);
+		flex: 1 0 280px;
+	}
+
+	/* Button. */
+	.pricing-button {
+		margin-top: auto;
+	}
+
+	/* Header. */
+	.pricing-header {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		margin-bottom: var(--spacing-6);
+	}
+
+	/* Name. */
+	.pricing-name {
+		font-size: var(--font-medium);
+		font-weight: var(--font-weight-semibold);
+	}
+
+	/* Price. */
+	.pricing-price {
+		gap: var(--spacing-1);
+		margin-left: auto;
+		color: var(--color-mute);
+		font-size: var(--font-x-small);
+		font-weight: var(--font-weight-medium);
+
+		> span:first-child {
+			color: var(--color-contrast);
+			font-size: var(--font-medium);
+			font-weight: var(--font-weight-semibold);
+		}
+	}
+
+	/* Description. */
+	.pricing-description {
+		margin-top: 0;
+		margin-bottom: var(--spacing-7);
+		font-size: var(--font-small);
+
+		&:has(+ .button) {
+			margin-bottom: var(--spacing-8);
+		}
+	}
+
+	/* Benefits. */
+	.pricing-benefits {
+		margin: 0 0 var(--spacing-8);
+		padding: 0;
+		font-size: var(--font-small);
+		list-style: none;
+
+		> li {
+			position: relative;
+			padding-left: 1.5rem;
+
+			+ li {
+				margin-top: var(--spacing-6);
+			}
+
+			/* Icon check. */
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0.3rem;
+				left: 0.225rem;
+				width: 0.563rem;
+				height: 0.563rem;
+				background-color: var(--color-accent-foreground);
+				mask-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2.59998L3.375 6.72497L1.5 4.84998" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+				mask-size: 100% 100%;
+			}
+
+			/* Background check. */
+			&::before {
+				position: absolute;
+				top: 0.1rem;
+				left: 0;
+				width: 1rem;
+				height: 1rem;
+				border-radius: 50%;
+				background-color: var(--ghost-accent-color);
+				content: '';
+			}
+		}
+	}
+
+	/* Discount. */
+	.pricing-discount {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		color: var(--color-mute);
+		font-size: var(--font-x-small);
+		font-weight: var(--font-weight-medium);
+		text-align: center;
+	}
+
+	/* Signin. */
+	.pricing-signin {
+		padding: var(--spacing-7) var(--spacing-8);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2);
+
+		> :where(p) {
+			margin-bottom: var(--spacing-4);
+		}
+	}
+}
+
+/* Content. */
+.section-pricing + .post-content {
+	padding: var(--spacing-7) var(--spacing-8) var(--spacing-8);
+}

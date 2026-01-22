@@ -1,0 +1,80 @@
+{{#*inline "srcset"}}
+	{{#match size "avatar"}}
+		{{img_url src size="40" format=format}} 40w,
+		{{img_url src size="80" format=format}} 80w
+	{{else match size "avatar-small"}}
+		{{img_url src size="20" format=format}} 18w,
+		{{img_url src size="40" format=format}} 36w
+	{{else match size "avatar-author"}}
+		{{img_url src size="80" format=format}} 80w,
+		{{img_url src size="100" format=format}} 100w,
+		{{img_url src size="200" format=format}} 200w,
+	{{else match size "post-card-list"}}
+		{{img_url src size="200" format=format}} 200w,
+		{{img_url src size="320" format=format}} 320w,
+		{{img_url src size="560" format=format}} 560w,
+		{{img_url src size="800" format=format}} 800w,
+	{{else match size "post-card-grid"}}
+		{{img_url src size="200" format=format}} 200w,
+		{{img_url src size="320" format=format}} 320w,
+		{{img_url src size="560" format=format}} 560w,
+		{{img_url src size="800" format=format}} 800w,
+	{{else}}
+		{{img_url src size="320" format=format}} 320w,
+		{{img_url src size="560" format=format}} 560w,
+		{{img_url src size="800" format=format}} 800w,
+		{{img_url src size="1100" format=format}} 1100w,
+		{{img_url src size="1300" format=format}} 1300w,
+		{{img_url src size="1600" format=format}} 1600w,
+		{{img_url src size="2000" format=format}} 2000w
+	{{/match}}
+{{/inline}}
+
+{{#*inline "dimensions"}}
+	{{!-- Avatar. --}}
+	{{~#match size "avatar"~}}
+		{{~> @partial-block width="40" height="40" sizes="40px"~}}
+
+	{{!-- Avatar small --}}
+	{{~else match size "avatar-small"~}}
+		{{~> @partial-block width="18" height="18" sizes="18px"~}}
+
+	{{!-- Avatar for author page. --}}
+	{{~else match size "avatar-author"~}}
+		{{~> @partial-block width="100" height="100" sizes="(max-width: 1079px) 60px, 100px"~}}
+
+	{{!-- Post card style list. --}}
+	{{~else match size "post-card-list"~}}
+		{{~> @partial-block width="240" height="135" sizes="(max-width: 479px) 90vw, 240px"~}}
+
+	{{!-- Post card style grid. --}}
+	{{~else match size "post-card-grid"~}}
+		{{~> @partial-block width="270" height="150" sizes="(max-width: 447px) 90vw, 270px"~}}
+
+	{{!-- Container full. --}}
+	{{~else match size "container-full"~}}
+		{{~> @partial-block width="560" height="315" sizes="(max-width: 479px) 100vw, (max-width: 1079px) 480px, (max-width: 1279px) 580px, (max-width: 1599px) 640px, 760px"~}}
+
+	{{!-- Container. --}}
+	{{~else~}}
+		{{~> @partial-block width="560" height="315" sizes="(max-width: 479px) 93vw, (max-width: 1079px) 440px, (max-width: 1279px) 540px, (max-width: 1599px) 600px, 720px"~}}
+	{{~/match~}}
+{{/inline}}
+
+<picture{{#if class}} class="{{class}}"{{/if}}>
+	<source
+		srcset="{{> "srcset" format="webp"}}"
+		sizes="{{#> "dimensions"}}{{sizes}}{{/"dimensions"}}"
+		type="image/webp"
+	>
+	<img
+		src="{{img_url src size}}"
+		srcset="{{> "srcset"}}"
+		width="{{#> "dimensions"}}{{width}}{{/"dimensions"}}"
+		height="{{#> "dimensions"}}{{height}}{{/"dimensions"}}"
+		alt="{{#if alt}}{{alt}}{{else}}{{altElse}}{{/if}}"
+		sizes="{{#> "dimensions"}}{{sizes}}{{/"dimensions"}}"
+		loading="{{#if fast}}eager{{else}}lazy{{/if}}"
+		{{#if custom_attr}}{{custom_attr}}{{/if}}
+	>
+</picture>

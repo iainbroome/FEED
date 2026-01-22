@@ -1,0 +1,40 @@
+.kg-btn,
+.kg-cta-button,
+.kg-header-card-button,
+.kg-signup-card-button,
+.kg-product-card-button {
+	display: inline-flex;
+	justify-content: center;
+	min-width: var(--button--min-width);
+	height: auto !important;
+	min-height: var(--button--min-height) !important;
+	padding: var(--button--padding-v) var(--button--padding-h) !important;
+	border-radius: var(--button--border-radius) !important;
+	font-family: var(--font-family-button) !important;
+	font-size: var(--button--font-size) !important;
+	font-weight: var(--button--font-weight) !important;
+	line-height: var(--button--line-height) !important;
+	text-align: center;
+	opacity: var(--button--opacity) !important;
+	transition: var(--button--transition) !important;
+	outline-offset: 2px;
+
+	&:hover {
+		opacity: var(--button-hover--opacity) !important;
+	}
+
+	.stop-transition & {
+		transition-duration: 0s !important;
+	}
+}
+
+.kg-btn,
+.kg-product-card-button {
+	background-color: var(--button--background-color) !important;
+	color: var(--button--color) !important;
+
+	&:hover {
+		background-color: var(--button-hover--background-color) !important;
+		color: var(--button-hover--color) !important;
+	}
+}

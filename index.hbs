@@ -1,0 +1,9 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+<h1 class="screen-reader-text">{{@site.title}}</h1>
+
+{{!-- Latest posts. --}}
+{{#> "get-posts" page=pagination.page}}
+	{{> "sections/posts" title=(t "Posts on page {page}" page=../pagination.page)}}
+{{/"get-posts"}}

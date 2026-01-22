@@ -1,0 +1,46 @@
+@import url('../_breakpoints.css');
+@import url('../layout/navbar.css');
+
+/*
+ * Navbar: navbar + sidebar widgets
+ */
+
+:root {
+	--layout--content--width: 640px;
+	--layout--sidebar-widgets--width: 360px;
+}
+
+.container {
+	width: calc(var(--layout--content--width) + var(--layout--sidebar-widgets--width));
+	max-width: 100%;
+
+	> .content {
+		flex: 0 1 var(--layout--content--width);
+		width: var(--layout--content--width);
+		max-width: 100%;
+	}
+
+	> .sidebar-widgets {
+		flex: 0 0 var(--layout--sidebar-widgets--width);
+		width: var(--layout--sidebar-widgets--width);
+	}
+
+	@media (--breakpoint-max-lg) and (--breakpoint-md) {
+		--layout--sidebar-widgets--width: 300px;
+	}
+
+	@media (--breakpoint-max-md) {
+		--layout--sidebar-widgets--width: 0px;
+	}
+
+	/* Content width. */
+	@media (--breakpoint-max-lg) {
+		--layout--content--width: 480px;
+	}
+}
+
+.footer {
+	@media (--breakpoint-md) {
+		display: none;
+	}
+}

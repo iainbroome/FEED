@@ -1,0 +1,41 @@
+@import url('../_breakpoints.css');
+@import url('../layout/sidebar-navigation.css');
+
+/*
+ * Focused: sidebar navigation only
+ */
+
+:root {
+	--layout--content--width: 640px;
+	--layout--sidebar-navigation--width: 240px;
+}
+
+.container {
+	width: calc(var(--layout--content--width) + var(--layout--sidebar-navigation--width));
+	max-width: 100%;
+
+	> .content {
+		flex: 0 1 var(--layout--content--width);
+		width: var(--layout--content--width);
+		max-width: calc(100% - var(--layout--sidebar-navigation--width));
+	}
+
+	> .sidebar-navigation-container {
+		flex: 0 0 var(--layout--sidebar-navigation--width);
+		width: var(--layout--sidebar-navigation--width);
+	}
+
+	@media (--breakpoint-max-md) and (--breakpoint-sm) {
+		--layout--sidebar-navigation--width: calc(var(--navigation-sidebar--icon--size) + var(--layout--gap) * 2);
+	}
+
+	@media (--breakpoint-max-sm) {
+		--layout--sidebar-navigation--width: 0px;
+	}
+}
+
+@media (--breakpoint-md) {
+	.navbar {
+		display: none;
+	}
+}

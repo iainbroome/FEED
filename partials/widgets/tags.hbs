@@ -1,0 +1,24 @@
+{{#if tags}}
+	<section class="widget-tags">
+		<h2 class="widget-heading">{{{t "{icon} Popular tags" icon='<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 15.2716C5.25011 15.5178 5.34791 15.754 5.52193 15.9282L17.0675 27.4703C17.2418 27.6445 17.4782 27.7423 17.7247 27.7423C17.9711 27.7423 18.2075 27.6445 18.3818 27.4703L28.2203 17.6284C28.3945 17.454 28.4923 17.2176 28.4923 16.9712C28.4923 16.7247 28.3945 16.4883 28.2203 16.314L16.6782 4.77193C16.504 4.59791 16.2678 4.50011 16.0216 4.5H5.25V15.2716Z" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.75 10V10.001" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'}}}</h2>
+
+		<div class="widget-tags-list">
+			{{#foreach tags}}
+				<div class="widget-tags-card">
+					<a href="{{url}}" aria-label="{{name}}"></a>
+					{{#if accent_color}}
+						<div style="--tag--color: {{accent_color}};"></div>
+					{{else if feature_image}}
+						<figure>
+							{{> "components/image" size="avatar" src=feature_image alt=name}}
+						</figure>
+					{{else}}
+						<div></div>
+					{{/if}}
+					<h3>{{name}}</h3>
+					<span>{{plural count.posts empty=(t "0 posts") singular=(t "% post") plural=(t "% posts")}}</span>
+				</div>
+			{{/foreach}}
+		</div>
+	</section>
+{{/if}}

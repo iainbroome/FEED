@@ -6,5 +6,11 @@
 
 <div class="page-error-card">
 	<h1>{{statusCode}}. {{message}}</h1>
-	<p>{{t 'Oops! It seems like you’ve landed on a page that doesn’t exist.'}}</p>
+	<p>{{t 'Ah, cripes. You have landed on a page that does not exist. It may have been deleted or it could be that the web address is wrong. Check that first.'}}</p>
+	<p>{{t 'Still no luck? Try the following.'}}</p>
+	<ul class="page-error-links">
+		<li><a href="http://clearlanguage.club">{{t 'Back to the home page'}}</a></li>
+		<li><a href="/tags">{{t 'Choose a tag'}}</a></li>
+		<li><a href="#/search">{{t 'Use the site search'}}</a></li>
+	</ul>
 </div>

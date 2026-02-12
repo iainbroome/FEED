@@ -6,7 +6,7 @@
 	max-width: 680px;
 	margin: 0 auto;
 	padding: var(--spacing-10) var(--spacing-7);
-  font-family: var(--font-family-base);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Feed header */

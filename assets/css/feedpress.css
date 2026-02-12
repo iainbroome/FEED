@@ -1,215 +1,248 @@
-/* stylelint-disable at-rule-no-unknown */
+/* 
+ * Minimal RSS Feed Template CSS
+ * Inspired by kottke.org's clean, typography-focused design
+ * For use with FeedPress custom CSS
+ */
 
-/* Feed page styles for RSS/Atom feed display */
-
-.feed-container {
-	max-width: 680px;
-	margin: 0 auto;
-	padding: var(--spacing-10) var(--spacing-7);
-  font-family: Arial, Helvetica, sans-serif;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Feed header */
-.feed-header {
-	margin-bottom: var(--spacing-10);
-	padding-bottom: var(--spacing-9);
-	border-bottom: 1px solid var(--color-border);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-.feed-title {
-	@mixin heading-1;
-	margin-bottom: var(--spacing-5);
-	color: var(--color-contrast);
+/* Hide channel logo image */
+channel > image {
+  display: none;
 }
 
-.feed-description {
-	font-size: var(--font-large);
-	color: var(--color-secondary);
-	line-height: 1.5;
+/* Channel/Feed header */
+channel > title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+  line-height: 1.2;
+  display: block;
 }
 
-.feed-link {
-	display: inline-block;
-	margin-top: var(--spacing-8);
-	font-size: var(--font-medium);
-	color: var(--ghost-accent-color);
-	text-decoration: underline;
-	text-decoration-thickness: 0.075em;
-	text-underline-offset: 0.15em;
-	transition: color 0.1s ease;
+channel > description {
+  font-size: 17px;
+  color: #666;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 20px;
 }
 
-.feed-link:hover {
-	color: var(--ghost-accent-color);
-	opacity: 0.8;
+channel > link {
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 40px;
+  font-size: 15px;
+  color: #0066cc;
+  text-decoration: none;
 }
 
-/* RSS explainer notice */
-.rss-notice {
-	background-color: var(--color-background-100);
-	padding: var(--spacing-8);
-	margin-bottom: var(--spacing-10);
-	border-left: 3px solid var(--ghost-accent-color);
-	font-size: var(--font-medium);
-	color: var(--color-secondary);
-	line-height: 1.6;
-}
-
-.rss-notice p {
-	margin-bottom: var(--spacing-6);
-}
-
-.rss-notice p:last-child {
-	margin-bottom: 0;
-}
-
-.rss-notice a {
-	color: var(--ghost-accent-color);
-	text-decoration: underline;
-	text-decoration-thickness: 0.075em;
-	text-underline-offset: 0.15em;
-	transition: color 0.1s ease;
-}
-
-.rss-notice a:hover {
-	opacity: 0.8;
+channel > link:hover {
+  text-decoration: underline;
 }
 
 /* Feed items */
-.feed-items {
-	list-style: none;
-	padding-left: 0;
+item {
+  display: block;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
 }
 
-.feed-item {
-	margin-bottom: var(--spacing-10);
-	padding-bottom: var(--spacing-9);
-	border-bottom: 1px solid var(--color-border);
+item:last-of-type {
+  border-bottom: none;
 }
 
-.feed-item:last-child {
-	border-bottom: none;
-	margin-bottom: 0;
-	padding-bottom: 0;
+/* Item title */
+item > title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  display: block;
 }
 
-.item-title {
-	@mixin heading-2;
-	margin-bottom: var(--spacing-5);
-	line-height: 1.3;
+item > title a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.item-title a {
-	color: var(--color-contrast);
-	text-decoration: underline;
-	text-decoration-thickness: 0.075em;
-	text-underline-offset: 0.15em;
-	transition: color 0.1s ease;
+item > title a:hover {
+  color: #0066cc;
 }
 
-.item-title a:hover {
-	color: var(--ghost-accent-color);
+/* Item link */
+item > link {
+  display: inline-block;
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: none;
+  margin-bottom: 8px;
 }
 
-.item-meta {
-	font-size: var(--font-small);
-	color: var(--color-secondary);
-	margin-bottom: var(--spacing-7);
+item > link:hover {
+  text-decoration: underline;
 }
 
-.item-author {
-	color: var(--color-secondary);
+/* Item metadata */
+item > pubDate {
+  display: block;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 8px;
 }
 
-.item-date {
-	color: var(--color-secondary);
+item > dc\\:creator {
+  display: inline;
+  font-size: 14px;
+  color: #666;
 }
 
-.item-description,
-.item-content {
-	font-size: 16px;
-	line-height: 1.7;
-	color: var(--color-foreground);
-	margin-top: var(--spacing-7);
+item > dc\\:creator::before {
+  content: "By ";
 }
 
-.item-description p,
-.item-content p {
-	margin-bottom: var(--vertical-rhythm);
+/* Category tags */
+item > category {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  background-color: #f5f5f5;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-right: 6px;
+  margin-top: 8px;
 }
 
-.item-description p:last-child,
-.item-content p:last-child {
-	margin-bottom: 0;
+/* Item description */
+item > description {
+  display: block;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+  margin-top: 12px;
 }
 
-.item-description a,
-.item-content a {
-	color: var(--ghost-accent-color);
-	text-decoration: underline;
-	text-decoration-thickness: 0.075em;
-	text-underline-offset: 0.15em;
-	transition: color 0.1s ease;
+/* Links within content */
+description a,
+content\\:encoded a {
+  color: #0066cc;
+  text-decoration: none;
 }
 
-.item-description a:hover,
-.item-content a:hover {
-	opacity: 0.8;
+description a:hover,
+content\\:encoded a:hover {
+  text-decoration: underline;
 }
 
-.item-read-more {
-	display: inline-block;
-	margin-top: var(--spacing-7);
-	font-size: var(--font-medium);
-	color: var(--ghost-accent-color);
-	text-decoration: underline;
-	text-decoration-thickness: 0.075em;
-	text-underline-offset: 0.15em;
-	transition: color 0.1s ease;
+/* Paragraphs in description/content */
+description p,
+content\\:encoded p {
+  margin-bottom: 15px;
 }
 
-.item-read-more:hover {
-	opacity: 0.8;
+description p:last-child,
+content\\:encoded p:last-child {
+  margin-bottom: 0;
 }
 
-/* Footer */
-.feed-footer {
-	margin-top: var(--spacing-10);
-	padding-top: var(--spacing-9);
-	border-top: 1px solid var(--color-border);
-	text-align: center;
-	font-size: var(--font-medium);
-	color: var(--color-secondary);
+/* Images */
+description img,
+content\\:encoded img {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0;
+  display: block;
 }
 
-.feed-footer a {
-	color: var(--ghost-accent-color);
-	text-decoration: underline;
-	text-decoration-thickness: 0.075em;
-	text-underline-offset: 0.15em;
-	transition: color 0.1s ease;
+/* Blockquotes */
+description blockquote,
+content\\:encoded blockquote {
+  border-left: 3px solid #e0e0e0;
+  margin: 15px 0;
+  padding: 10px 20px;
+  color: #666;
+  font-style: italic;
 }
 
-.feed-footer a:hover {
-	opacity: 0.8;
+/* Lists */
+description ul,
+description ol,
+content\\:encoded ul,
+content\\:encoded ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+description li,
+content\\:encoded li {
+  margin-bottom: 8px;
+}
+
+/* Headings in content */
+description h2,
+description h3,
+content\\:encoded h2,
+content\\:encoded h3 {
+  font-weight: 600;
+  color: #000;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+description h2,
+content\\:encoded h2 {
+  font-size: 20px;
+}
+
+description h3,
+content\\:encoded h3 {
+  font-size: 18px;
+}
+
+/* Horizontal rules */
+description hr,
+content\\:encoded hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 25px 0;
 }
 
 /* Responsive adjustments */
-@media (--breakpoint-max-sm) {
-	.feed-container {
-		padding: var(--spacing-9) var(--spacing-6);
-	}
-
-	.feed-title {
-		font-size: var(--font-h3);
-	}
-
-	.item-title {
-		font-size: var(--font-h3);
-	}
-
-	.feed-item {
-		margin-bottom: var(--spacing-9);
-		padding-bottom: var(--spacing-8);
-	}
+@media (max-width: 768px) {
+  body {
+    padding: 30px 15px;
+    font-size: 17px;
+  }
+  
+  channel > title {
+    font-size: 26px;
+  }
+  
+  item > title {
+    font-size: 21px;
+  }
+  
+  item {
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+  }
 }

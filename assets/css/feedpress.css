@@ -26,7 +26,7 @@ div#header h1 {
   font-size: 32px !important;
   color: #000 !important;
   font-weight: 600 !important;
-  text-align: center !important;
+  text-align: left !important;
   padding-bottom: 10px !important;
   line-height: 1.2 !important;
   letter-spacing: normal !important;
@@ -38,14 +38,14 @@ div#header h1 a {
 }
 
 div#header h1 a:hover {
-  color: #0066cc !important;
+  color: #4f46da !important;
 }
 
 div#header h2,
 div#header p.about {
   font-size: 17px !important;
   color: #666 !important;
-  text-align: center !important;
+  text-align: left !important;
   line-height: 1.5 !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
 }
@@ -85,6 +85,7 @@ ul#items li.regularitem {
   padding: 50px 0 30px !important;
   margin: 0 !important;
   width: 100% !important;
+  list-style: none !important;
 }
 
 ul#items li.regularitem:first-child {
@@ -103,6 +104,7 @@ ul#items li.regularitem h4.itemtitle {
   padding-bottom: 0 !important;
   line-height: 1.3 !important;
   letter-spacing: normal !important;
+  list-style: none !important;
 }
 
 ul#items li.regularitem h4.itemtitle a {
@@ -111,7 +113,7 @@ ul#items li.regularitem h4.itemtitle a {
 }
 
 ul#items li.regularitem h4.itemtitle a:hover {
-  color: #0066cc !important;
+  color: #4f46da !important;
 }
 
 /* Post date/author */
@@ -131,9 +133,19 @@ ul#items li.regularitem img.mediacontent {
   float: none !important;
   max-height: none !important;
   max-width: 100% !important;
+  width: 100% !important;
   height: auto !important;
   margin: 0 0 15px 0 !important;
   border-radius: 3px !important;
+  display: block !important;
+}
+
+/* All images in content should stay within bounds */
+ul#items li.regularitem div.itemcontent img {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
 }
 
 /* Post content */
@@ -149,11 +161,12 @@ ul#items li.regularitem div.itemcontent p {
 }
 
 ul#items li.regularitem div.itemcontent a {
-  color: #0066cc !important;
-  text-decoration: none !important;
+  color: #4f46da !important;
+  text-decoration: underline !important;
 }
 
 ul#items li.regularitem div.itemcontent a:hover {
+  color: #4f46da !important;
   text-decoration: underline !important;
 }
 

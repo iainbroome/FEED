@@ -49,9 +49,10 @@ div#header p.about {
   line-height: 1.5 !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
   border: 1px solid #ccc;
-  padding: 25px 25px 15px;
+  padding: 25px 25px 20px;
   border-radius: 10px;
   background: #f0f6f6;
+  font-weight: normal;
 }
 
 /* Hide subscribe section for cleaner look */

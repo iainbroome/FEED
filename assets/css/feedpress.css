@@ -55,6 +55,16 @@ div#header p.about {
   font-weight: normal;
 }
 
+div#header a { 
+  color: #4f46da !important; 
+  text-decoration: underline !important; 
+} 
+
+div#header a:hover { 
+  color: #4f46da !important; 
+  text-decoration: none !important;  
+}
+
 /* Hide subscribe section for cleaner look */
 div#subscribe {
   display: none !important;

@@ -2,19 +2,19 @@
 	<a href="{{url}}" class="post-date-link" title="Permalink">
 		<time datetime="{{date format="YYYY-MM-DD"}}">
 			<span>{{date published_at timeago="true"}}</span>
-			<span>{{date format="MMMM D, YYYY"}}</span>
+			<span>{{date format="D MMMM YYYY"}}</span>
 		</time>
 	</a>
 {{else has tag="link"}}
 	<a href="{{url}}" class="post-date-link" title="Permalink">
 		<time datetime="{{date format="YYYY-MM-DD"}}">
 			<span>{{date published_at timeago="true"}}</span>
-			<span>{{date format="MMMM D, YYYY"}}</span>
+			<span>{{date format="D MMMM YYYY"}}</span>
 		</time>
 	</a>
 {{else}}
 	<time datetime="{{date format="YYYY-MM-DD"}}">
 		<span>{{date published_at timeago="true"}}</span>
-		<span>{{date format="MMMM D, YYYY"}}</span>
+		<span>{{date format="D MMMM YYYY"}}</span>
 	</time>
 {{/has}}

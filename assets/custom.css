@@ -9,3 +9,22 @@
  */
 
 /* Your custom CSS goes below this line */
+
+/* Larger post titles, excluding link posts */
+.section-posts article:not(.post-card-link) h3,
+.post:not(.tag-link) .post-title {
+    font-size: 1.2rem;
+}
+
+/* Newsletter posts - background + shadow */
+.post-card-newsletter {
+    background-color: #EEF6F6;
+    border-radius: var(--radius-2);
+    box-shadow: 0 0 20px -4px rgb(0 0 0 / 20%);
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+html[data-color-scheme='dark'] .post-card-newsletter {
+    background-color: #1a2e2e;
+}

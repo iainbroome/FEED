@@ -1,0 +1,17 @@
+{{#if primary_tag}}
+	{{#get "posts" filter="tag:{{primary_tag.slug}}+id:-{{id}}" limit="3" order="published_at DESC"}}
+		{{#if posts}}
+			<section class="widget-posts widget-also-tagged">
+				<h2 class="widget-heading"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 15.2716C5.25011 15.5178 5.34791 15.754 5.52193 15.9282L17.0675 27.4703C17.2418 27.6445 17.4782 27.7423 17.7247 27.7423C17.9711 27.7423 18.2075 27.6445 18.3818 27.4703L28.2203 17.6284C28.3945 17.454 28.4923 17.2176 28.4923 16.9712C28.4923 16.7247 28.3945 16.4883 28.2203 16.314L16.6782 4.77193C16.504 4.59791 16.2678 4.50011 16.0216 4.5H5.25V15.2716Z" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.75 10V10.001" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> Also tagged <span style="text-transform: lowercase;">{{../primary_tag.name}}</span></h2>
+
+				{{#foreach posts}}
+					<article class="widget-posts-card {{post_class}}">
+						<h3>
+							<a href="{{url}}">{{title}}</a>
+						</h3>
+					</article>
+				{{/foreach}}
+			</section>
+		{{/if}}
+	{{/get}}
+{{/if}}

@@ -1,0 +1,476 @@
+/* 
+  REFERENCE ONLY - not loaded by the theme.
+  This is a copy of the CSS in Ghost Admin > Settings > Custom CSS.
+  Keep this in sync when making changes there.
+*/
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+<style>
+
+  body {
+    /* Increase content area width to 720px */
+    --layout--content--width: 720px;
+    
+    /* Adjust navigation sidebar width to 220px */
+    --layout--sidebar-navigation--width: 220px;
+ 
+    /* Adjust widgets sidebar width to 340px */
+    --layout--sidebar-widgets--width: 340px;
+  }
+  
+:root {
+    --gh-font-body: "Atkinson Hyperlegible Next", sans-serif;
+    --gh-font-heading: "Atkinson Hyperlegible Next", sans-serif;
+    --color-accent-foreground: #fff;
+    --color-contrast: #000;
+    --color-background: #fff;
+    --color-background-100: #fbfbfb;
+    --color-background-200: #f5f5f5;
+    --color-background-300: #eaeaea;
+    --color-background-400: #dbdbdb;
+    --color-grey-translucent: hsla(0,0%,90%,.5);
+    --color-foreground: #000;
+    --color-secondary: #000;
+    --color-mute: #a8a8a8;
+    --color-border: hsla(0,0%,40%,.15);
+    --color-success: #348f3f;
+    --color-error: #ff4c4c;
+    --color-white: #fff;
+    --color-black: #000;
+    --font-family-headings: var(--gh-font-heading,"Geist",sans-serif);
+    --font-family-body: var(--gh-font-body,"Geist",sans-serif);
+    --font-family-button: var(--gh-font-body,"Geist",sans-serif);
+    --font-large: 1.125rem;
+    --font-medium: 1.08rem;
+    --font-small: 0.8125rem;
+    --font-x-small: 0.6875rem;
+    --font-h1: 1.2rem;
+    --font-h2: 1.1rem;
+    --font-h3: 1.08rem;
+    --font-h4: 0.875rem;
+    --font-h5: 0.8125rem;
+    --font-h6: 0.75rem;
+    --font-weight-light: 400;
+    --font-weight-regular: 450;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --spacing-1: 0.125rem;
+    --spacing-2: 0.25rem;
+    --spacing-3: 0.375rem;
+    --spacing-4: 0.5rem;
+    --spacing-5: 0.625rem;
+    --spacing-6: 0.75rem;
+    --spacing-7: 1rem;
+    --spacing-8: 1.25rem;
+    --spacing-9: 1.875rem;
+    --spacing-10: 2.5rem;
+    --vertical-rhythm: 0.75rem;
+    --radius-1: 0.375rem;
+    --radius-2: 0.5rem;
+    --radius-3: 1rem;
+    --layout--width: 1240px;
+    --layout--gap: 1.25rem;
+    --featured-image--aspect-ratio: 16/9;
+    --avatar--size: 2.5rem;
+    --avatar--font-size: var(--font-medium);
+    --avatar--color: var(--color-secondary);
+    --avatar--background-color: var(--color-background-300);
+    --avatar-hover--background-color: var(--color-background-400);
+    --button--padding-v: 0.625rem;
+    --button--padding-h: 1rem;
+    --button--min-width: auto;
+    --button--min-height: 2.25rem;
+    --button--font-size: var(--font-medium);
+    --button--font-weight: var(--font-weight-medium);
+    --button--line-height: 1;
+    --button--border-radius: 2rem;
+    --button--color: var(--color-accent-foreground);
+    --button--background-color: var(--ghost-accent-color);
+    --button--opacity: 1;
+    --button--transition: background-color 0.15s ease,color 0.15s ease,opacity 0.15s ease;
+    --button-hover--color: var(--color-accent-foreground);
+    --button-hover--background-color: var(--ghost-accent-color);
+    --button-hover--opacity: 0.9;
+    --button-sm--padding-v: 0.5rem;
+    --button-sm--padding-h: 0.75rem;
+    --button-sm--min-height: 1.875rem;
+    --button-sm--font-size: var(--font-small);
+    --button-xs--padding-v: 0.375rem;
+    --button-xs--padding-h: 0.625rem;
+    --button-xs--min-height: 1.625rem;
+    --button-xs--font-size: var(--font-x-small)
+    --navigation-sidebar--font-size: var(--font-large);
+    --navigation-sidebar--gap: var(--spacing-2);
+    --navigation-sidebar--link--padding-v: var(--spacing-5);
+    --navigation-sidebar--link--padding-h: var(--spacing-6);
+    --navigation-sidebar--link--gap: var(--spacing-6);
+    --navigation-sidebar--icon--size: 1.5rem;
+    --logo--max-height: 24px;
+
+}
+
+
+:root[data-color-scheme=dark] {
+    --ghost-accent-color: var(--color-dark-accent, var(--color-accent));
+    --color-accent-foreground: var(--color-dark-accent-foreground, #fff);
+    --color-contrast: #fff;
+    --color-background: #1f2023;
+    --color-background-100: #2b2c30;
+    --color-background-200: #2f3035;
+    --color-background-300: #38383d;
+    --color-background-400: #404046;
+    --color-grey-translucent: rgba(81, 84, 92, .5);
+    --color-foreground: #FFF;
+    --color-secondary: #9295a0;
+    --color-mute: #777a88;
+    --color-border: hsla(235, 6%, 60%, .4);
+    --button--color: #000;
+    --button--background-color: #ffdd00;
+    --csstools-color-scheme--light: ;
+    color-scheme: dark;
+}
+
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--font-family-body);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100%;
+    word-break: break-word;
+}
+
+
+.post-head>.post-title {
+    font-weight: var(--font-weight-bold);
+}
+
+  
+li a {
+        color: #4e47d2;
+}
+
+  
+ul.page-error-links {
+    background: #f1f6f6;
+    padding: 25px 35px;
+    border-radius: 10px;
+}
+
+ul.page-error-links a {
+    color: #4e47d2;
+}
+  
+/* post excerpt colors */
+
+.section-posts article>p {
+    color: #505a5f;
+}
+
+.content>.post:not(.custom-page)>p {
+    color: #505a5f;
+}
+
+html[data-color-scheme='dark'] .section-posts article>p {
+  color: #ccc;
+}
+
+/* bold links become a color */
+  
+b, strong {
+    color: var(--color-current);
+}
+
+
+.kg-header-card.kg-v2 a span {
+    color: #FFF;
+    text-decoration: underline;
+}
+
+  
+  /* remove overlay color on quote posts */
+
+.kg-header-card:not(.kg-layout-split):before {
+    background-color: color-mix(in srgb,var(--color-black),transparent 100%);
+  }
+
+  .post-card-quote .post-head {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.post-card-quote .post-status-icons {
+	margin-left: auto;
+}
+
+/* Light mode colors link posts */
+.post-link-external {
+  color: #4f47da !important;
+    text-decoration: underline !important;
+}
+.post-link-external:hover {
+  text-decoration: none !important;
+}
+.post-link-external::after {
+  content: " →";
+  font-style: normal;
+}
+
+/* Dark mode colors link posts */
+html[data-color-scheme='dark'] .post-link-external {
+  color: #ffdd00 !important;
+  text-decoration: underline !important;
+}
+html[data-color-scheme='dark'] .post-link-external:hover {
+  color: #ffdd00 !important;
+  text-decoration: none !important;
+
+}
+
+p a {
+  color: #4f47da !important;
+  text-decoration: underline !important;
+}
+
+p a:hover {
+  text-decoration: none !important;
+}
+  
+html[data-color-scheme='dark']  p a {
+  color: #ffdd00 !important;
+  text-decoration: underline !important;
+}
+html[data-color-scheme='dark'] p a:hover {
+  color: #ffdd00 !important;
+  text-decoration: none !important;
+
+}
+
+html[data-color-scheme='dark'] h3 a:hover {
+  color: #ffdd00 !important;
+  text-decoration: none !important;
+
+}
+
+
+
+  html[data-color-scheme='dark'] figcaption a:hover {
+  color: #ffdd00 !important;
+  text-decoration: none !important;
+
+}
+
+
+ /* display tag color in heading */
+  
+.tag .tag-header-with-color {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.tag .tag-header-with-color h1 {
+	margin: 0;
+}
+
+.tag .tag-color-circle {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+  
+
+  /* Reset to standard bullets */
+.post-content ul > li:before {
+  display: none !important;
+}
+
+.post-content ul > li {
+  list-style-type: disc !important;
+  padding-left: 0 !important;
+}
+
+.post-content ul {
+  padding-left: 2em !important;
+}
+
+.raindrop-bookmark-item::marker {
+    display: none;
+  }
+
+  
+  
+/* System preference dark mode */
+@media (prefers-color-scheme: dark) {
+  html[data-color-scheme='system'] .post-link-external {
+    color: #fff !important;
+    text-decoration: underline !important;
+  }
+  html[data-color-scheme='system'] .post-link-external:hover {
+    color: #ffdd00 !important;
+  }
+}
+
+.widget-posts-card {
+    border: none !important;
+}
+  
+
+blockquote {
+    color: #505a5f;
+}
+
+blockquote a {
+  color: #4e47d2;
+}
+
+html[data-color-scheme='dark']  blockquote a {
+    color: #ffdd00; !important;
+}
+  
+html[data-color-scheme='dark']  blockquote {
+    color: #ccc !important;
+}
+
+
+  /* Bookmarks dark mode colours */
+
+  html[data-color-scheme='dark'] .raindrop-bookmark-link {
+    color: #ffdd00;
+}
+
+html[data-color-scheme='dark'] .raindrop-collection-filter.active {
+    background-color: #ffdd00 !important;
+    color: #000 !important;
+}
+
+html[data-color-scheme='dark'] .raindrop-collection-filter.active .raindrop-collection-count {
+    color: #000 !important;
+}
+  
+html[data-color-scheme='dark'] .raindrop-bookmark-item {
+    background: transparent;
+    border: 1px solid var(--color-border);
+}
+
+  
+  
+/* Tag hover */
+
+  .post-head>.post-tag:hover {
+      text-decoration: underline;
+  }
+
+/* Make permalink link wrapper */
+.post-date-link {
+	color: var(--color-secondary);
+	text-decoration: underline;
+	display: flex;
+	flex-direction: column;
+	font-size: var(--font-small);
+	margin-right: auto;
+	overflow: hidden;
+	width: max-content;
+}
+
+/* Keep time as flex container */
+.post-date-link > time {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+/* Apply the same span styles to linked posts */
+.post-date-link > time > span {
+	transition: transform .25s ease;
+	white-space: nowrap;
+}
+
+.post-date-link > time > span:last-child {
+	margin-bottom: -1lh;
+}
+
+/* Hover on link should trigger the transform */
+.post-date-link:hover > time > span {
+	transform: translateY(-100%);
+}
+
+
+/* Completely reset raindrop bookmark list items */
+#raindrop-bookmarks,
+#raindrop-bookmarks * {
+  position: static !important;
+}
+
+#raindrop-bookmarks .raindrop-bookmark-item:before,
+.raindrop-bookmark-list > li:before {
+  content: none !important;
+  display: none !important;
+}
+
+#raindrop-bookmarks .raindrop-bookmark-item,
+.raindrop-bookmark-list > li {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 12px 10px !important;
+  margin: 10px 0 !important;
+  position: relative !important;
+}
+
+.raindrop-bookmark-list {
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+  .raindrop-bookmark-link {
+      margin-right: 10px;
+}
+
+
+
+  
+  /* Remove padding from raindrop bookmark list */
+#raindrop-bookmarks .raindrop-bookmark-list,
+.raindrop-bookmark-list {
+  padding-left: 0 !important;
+}
+
+  
+.gh-main {
+    padding-top: 4rem;
+    }    
+    
+.gh-subscribe {
+    }
+
+
+  .gh-content table:not(.gist table) {
+    background: none;
+    display: inline-table;
+  }
+
+  .gh-content table:not(.gist table) th {
+    background-color: #eee;
+    color: var(--color-darkgrey);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: .2px;
+    text-align: left;
+    text-transform: none; 
+}
+
+</style>

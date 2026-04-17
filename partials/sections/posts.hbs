@@ -59,7 +59,7 @@
 						Classic style.
 					--}}
 					{{#match ../slug "classic"}}
-						<article class="{{post_class}}{{#has tag="link"}} post-card-link{{/has}}{{#has tag="quotes"}} post-card-quote{{/has}}">
+						<article class="{{post_class}}{{#has tag="link"}} post-card-link{{/has}}{{#has tag="quotes"}} post-card-quote{{/has}}{{#has tag="newsletter"}} post-card-newsletter{{/has}}">
 							{{#has tag="quotes"}}
 	{{!-- For quote posts, show only status icons --}}
 	<div class="post-head">
@@ -80,7 +80,11 @@
 								</div>
 
 								{{!-- Content. --}}
-								{{> "post/content" is_post=true}}
+								{{#has tag="newsletter"}}
+									{{!-- Newsletter posts: show excerpt only, not full content --}}
+								{{else}}
+									{{> "post/content" is_post=true}}
+								{{/has}}
 
 							{{!-- Classic Extended --}}
 							{{else if ../extended}}

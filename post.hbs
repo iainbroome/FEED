@@ -8,13 +8,21 @@
 	{{!-- Author. --}}
 	{{> "widgets/author"}}
 
+	{{!-- Popular tags. --}}
+	{{#get "tags" limit="15" filter="visibility:public+slug:-[link,video,podcast,newsletter]" include="count.posts" order="count.posts DESC"}}
+		{{> "widgets/tags"}}
+	{{/get}}
+
+	{{!-- Also tagged. --}}
+	{{!-- {{> "widgets/also-tagged"}} --}}
+
 	{{!-- Toc. --}}
 	{{> "widgets/toc"}}
 
 {{!-- Related posts. --}}
-{{#get "posts" filter="id:-{{id}}+tag:-link" limit="3"}}
+{{!-- {{#get "posts" filter="id:-{{id}}+tag:-link" limit="3"}}
 	{{> "widgets/posts" is_related=true}}
-{{/get}}
+{{/get}} --}}
 
 	{{!-- Recommendations. --}}
 	{{> "widgets/recommendations"}}

@@ -9,7 +9,7 @@
 	{{> "widgets/author"}}
 
 	{{!-- Popular tags. --}}
-	{{#get "tags" limit="15" filter="visibility:public+slug:-[link,video,podcast,newsletter]" include="count.posts" order="count.posts DESC"}}
+	{{#get "tags" limit="5" filter="visibility:public+slug:-[link,video,podcast,newsletter]" include="count.posts" order="count.posts DESC"}}
 		{{> "widgets/tags"}}
 	{{/get}}
 
